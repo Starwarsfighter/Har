@@ -18,8 +18,8 @@
       height: 100%;
       overflow: hidden;
       font-family: 'Poppins', sans-serif;
-      background: #020108;
-      color: #fff;
+      background: #87ceeb;
+      color: #333;
     }
 
     #canvas {
@@ -31,7 +31,6 @@
       z-index: 1;
     }
 
-    /* UI Layer */
     .ui-layer {
       position: relative;
       z-index: 10;
@@ -46,16 +45,16 @@
     }
 
     .card {
-      background: rgba(18, 10, 38, 0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1.5px solid rgba(255, 215, 0, 0.5);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 2px solid rgba(255, 182, 193, 0.9);
       padding: 28px 24px;
       border-radius: 25px;
       max-width: 90%;
       width: 480px;
       text-align: center;
-      box-shadow: 0 0 40px rgba(138, 43, 226, 0.7), inset 0 0 15px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.8);
       pointer-events: auto;
       animation: fadeIn 1.2s ease-out;
       transition: all 0.8s ease;
@@ -64,35 +63,33 @@
     h1 {
       font-family: 'Dancing Script', cursive;
       font-size: 2.8rem;
-      color: #ffd700;
+      color: #ff3366;
       margin-bottom: 10px;
-      text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+      text-shadow: 0 2px 8px rgba(255, 51, 102, 0.2);
     }
 
     p {
       font-size: 1.05rem;
       line-height: 1.7;
-      color: #f0e6ff;
-      margin-bottom: 15px;
-      font-weight: 300;
+      color: #4a4a4a;
+      margin-bottom: 18px;
+      font-weight: 400;
     }
 
     .highlight {
-      color: #ff6b81;
+      color: #ff1493;
       font-weight: 600;
     }
 
-    /* Button Hint Text */
     .tap-hint {
       font-size: 0.95rem;
-      color: #ffd700;
+      color: #ff3366;
       margin-bottom: 8px;
       font-weight: 600;
       letter-spacing: 0.5px;
       animation: blinkText 1.5s infinite alternate;
     }
 
-    /* Bouncing & Glowing Button */
     .btn {
       background: linear-gradient(135deg, #ff416c, #ff4b2b);
       color: white;
@@ -102,27 +99,25 @@
       font-weight: 600;
       border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 0 25px rgba(255, 65, 108, 0.8);
+      box-shadow: 0 8px 25px rgba(255, 65, 108, 0.4);
       transition: all 0.3s;
       outline: none;
       animation: bouncePulse 1.8s infinite ease-in-out;
     }
 
     .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 40px rgba(255, 65, 108, 1);
+      transform: scale(1.08);
+      box-shadow: 0 12px 30px rgba(255, 65, 108, 0.6);
     }
 
     .btn-next {
-      background: linear-gradient(135deg, #8a2be2, #4a00e0);
-      box-shadow: 0 0 25px rgba(138, 43, 226, 0.8);
+      background: linear-gradient(135deg, #ff6b81, #ff4757);
       animation: none;
     }
 
-    /* Love Message Overlay */
     .love-message-overlay {
       position: absolute;
-      top: 22%;
+      top: 20%;
       z-index: 15;
       text-align: center;
       width: 90%;
@@ -140,13 +135,12 @@
 
     .love-message-overlay h2 {
       font-family: 'Dancing Script', cursive;
-      font-size: 2.8rem;
-      color: #ffffff;
-      text-shadow: 0 0 20px #ff007f, 0 0 40px #ff416c, 0 0 60px #ffd700;
+      font-size: 3rem;
+      color: #ff1493;
+      text-shadow: 0 0 15px #ffffff, 0 0 25px #ffb6c1;
       line-height: 1.4;
     }
 
-    /* Final Screen */
     .final-screen {
       position: absolute;
       top: 0;
@@ -154,7 +148,7 @@
       width: 100%;
       height: 100%;
       z-index: 30;
-      background: #000;
+      background: #fff;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -172,25 +166,24 @@
     .final-text {
       font-family: 'Cinzel', serif;
       font-size: 2.5rem;
-      color: #fff;
+      color: #ff3366;
       letter-spacing: 2px;
       text-align: center;
       padding: 0 20px;
-      text-shadow: 0 0 30px rgba(255, 105, 180, 0.9), 0 0 10px rgba(255, 255, 255, 0.8);
+      text-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
       animation: pulseText 3s infinite alternate;
     }
 
     .sub-text {
       font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
-      color: #ffd700;
+      font-size: 2.2rem;
+      color: #ff6b81;
       margin-top: 18px;
     }
 
-    /* Animations */
     @keyframes bouncePulse {
-      0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 20px rgba(255, 65, 108, 0.7); }
-      50% { transform: translateY(-8px) scale(1.05); box-shadow: 0 0 35px rgba(255, 65, 108, 1); }
+      0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 8px 20px rgba(255, 65, 108, 0.4); }
+      50% { transform: translateY(-8px) scale(1.05); box-shadow: 0 12px 30px rgba(255, 65, 108, 0.7); }
     }
 
     @keyframes blinkText {
@@ -213,22 +206,25 @@
       top: 15px;
       right: 15px;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: white;
-      padding: 8px 14px;
+      border: 1px solid rgba(255, 105, 180, 0.4);
+      color: #ff3366;
+      padding: 8px 16px;
       border-radius: 20px;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
 <body>
 
   <button class="music-btn" onclick="toggleMusic()">🎵 Music On/Off</button>
-  <!-- Deep Romantic Instrumental Audio -->
-  <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/02/10/audio_c35233e7bd.mp3?filename=love-romantic-piano-10884.mp3"></audio>
+  
+  <!-- 100% Working Sweet Romantic Instrumental Music -->
+  <audio id="bgMusic" loop preload="auto" src="https://assets.mixkit.co/music/preview/mixkit-romantic-pete-533.mp3"></audio>
 
   <canvas id="canvas"></canvas>
 
@@ -237,8 +233,9 @@
     <div class="card" id="step1">
       <h1>Hey Gora... ❤️</h1>
       <p>
-        I know I made a mistake and you are angry with me...<br>
-        Please let me take you to a fairytale world created just for you.
+        हम दोनों एक-दूसरे से बहुत दूर हैं... 🌸<br>
+        मैं इस प्यारे से मौसम में तुम्हें कहीं दूर घुमाने ले जाना चाहता था, पर ले जा नहीं पा रहा।<br><br>
+        इसलिए मैं तुम्हें अपने इस छोटे से <b>वर्चुअल फेयरीटेल वर्ल्ड</b> में ले आया हूँ... ✨
       </p>
       <button class="btn btn-next" onclick="goToStep2()">Step Inside ✨</button>
     </div>
@@ -251,7 +248,6 @@
         <span class="highlight">Will you be mine forever?</span>
       </p>
       
-      <!-- Tap Hint Text -->
       <div class="tap-hint">If yes, then tap here 👇</div>
       <button class="btn" onclick="startCelebration()">Yes, I Will! ❤️</button>
     </div>
@@ -289,22 +285,22 @@
       }
     }
 
-    // Stars
-    const stars = Array.from({ length: 180 }, () => ({
+    // Clouds for Day Sky
+    const clouds = Array.from({ length: 5 }, () => ({
       x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight * 0.7,
-      radius: Math.random() * 1.5 + 0.3,
-      alpha: Math.random(),
-      speed: Math.random() * 0.02 + 0.005
+      y: Math.random() * (window.innerHeight * 0.3),
+      speed: Math.random() * 0.3 + 0.1,
+      size: Math.random() * 40 + 60
     }));
 
-    // Fireflies
-    const fireflies = Array.from({ length: 35 }, () => ({
+    // Floating Petals
+    const petals = Array.from({ length: 25 }, () => ({
       x: Math.random() * window.innerWidth,
-      y: window.innerHeight - Math.random() * 220,
-      radius: Math.random() * 2 + 1,
-      angle: Math.random() * Math.PI * 2,
-      speed: Math.random() * 0.6 + 0.2
+      y: Math.random() * window.innerHeight,
+      size: Math.random() * 6 + 4,
+      speedY: Math.random() * 1 + 0.5,
+      speedX: Math.random() * 0.6 - 0.3,
+      angle: Math.random() * Math.PI * 2
     }));
 
     let fireworks = [];
@@ -312,86 +308,98 @@
     let isCelebrating = false;
 
     function drawScene() {
-      // Sky Gradient
+      // Daylight Sky Gradient
       let skyGradient = ctx.createLinearGradient(0, 0, 0, height);
-      skyGradient.addColorStop(0, '#020108');
-      skyGradient.addColorStop(0.5, '#12072b');
-      skyGradient.addColorStop(1, '#2c0845');
+      skyGradient.addColorStop(0, '#70c1ff');
+      skyGradient.addColorStop(0.6, '#bce2ff');
+      skyGradient.addColorStop(1, '#e8f5ff');
       ctx.fillStyle = skyGradient;
       ctx.fillRect(0, 0, width, height);
 
-      // Moon
+      // Sun
       ctx.save();
       ctx.beginPath();
-      ctx.arc(width * 0.82, height * 0.2, 50, 0, Math.PI * 2);
-      ctx.fillStyle = '#fffde8';
-      ctx.shadowColor = 'rgba(255, 253, 232, 0.9)';
-      ctx.shadowBlur = 45;
+      ctx.arc(width * 0.85, height * 0.18, 55, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff7d6';
+      ctx.shadowColor = 'rgba(255, 235, 150, 0.8)';
+      ctx.shadowBlur = 50;
       ctx.fill();
       ctx.restore();
 
-      // Stars
-      stars.forEach(star => {
-        star.alpha += star.speed;
-        if (star.alpha > 1 || star.alpha < 0) star.speed = -star.speed;
-        ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.alpha)})`;
+      // Animated Clouds
+      clouds.forEach(c => {
+        c.x += c.speed;
+        if (c.x - c.size * 2 > width) c.x = -c.size * 2;
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.arc(c.x, c.y, c.size, 0, Math.PI * 2);
+        ctx.arc(c.x + c.size * 0.7, c.y - c.size * 0.3, c.size * 0.8, 0, Math.PI * 2);
+        ctx.arc(c.x + c.size * 1.4, c.y, c.size * 0.7, 0, Math.PI * 2);
         ctx.fill();
       });
 
-      // Fairytale Hill / Ground
-      ctx.fillStyle = '#080415';
+      // Fairytale Green Hill Background
+      ctx.fillStyle = '#9bd871';
       ctx.beginPath();
       ctx.moveTo(0, height);
-      ctx.quadraticCurveTo(width * 0.5, height - 160, width, height);
+      ctx.quadraticCurveTo(width * 0.5, height - 170, width, height);
       ctx.lineTo(width, height);
       ctx.fill();
 
-      // Fireflies
-      fireflies.forEach(f => {
-        f.angle += 0.02;
-        f.x += Math.cos(f.angle) * f.speed;
-        f.y += Math.sin(f.angle) * f.speed;
+      // Foreground Vibrant Meadow
+      ctx.fillStyle = '#7ac953';
+      ctx.beginPath();
+      ctx.moveTo(0, height);
+      ctx.quadraticCurveTo(width * 0.4, height - 120, width, height);
+      ctx.lineTo(width, height);
+      ctx.fill();
+
+      // Flowers on the Hill
+      for(let i = 0; i < width; i += 60) {
+        ctx.fillStyle = i % 120 === 0 ? '#ff6b81' : '#ffd700';
+        ctx.beginPath();
+        ctx.arc(i + 20, height - 20 - Math.sin(i)*15, 5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Floating Flower Petals in Air
+      petals.forEach(p => {
+        p.y += p.speedY;
+        p.x += p.speedX;
+        p.angle += 0.02;
+
+        if (p.y > height) p.y = -10;
+        if (p.x > width) p.x = 0;
 
         ctx.save();
-        ctx.fillStyle = `rgba(255, 215, 0, ${Math.abs(Math.sin(f.angle))})`;
-        ctx.shadowColor = '#ffd700';
-        ctx.shadowBlur = 10;
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.angle);
+        ctx.fillStyle = '#ff9ebb';
         ctx.beginPath();
-        ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
+        ctx.ellipse(0, 0, p.size, p.size / 2, 0, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       });
 
-      // 🌟 DRAW BRIGHT & CLEAR ANIME COUPLE
-      drawInbuiltAnimeProposal();
+      // 🎨 CLEAR & HIGH-CONTRAST 2D ANIME COUPLE
+      drawDaytimeAnimeProposal();
     }
 
-    function drawInbuiltAnimeProposal() {
+    function drawDaytimeAnimeProposal() {
       const cx = width * 0.5;
-      const cy = height - 55;
+      const cy = height - 40;
 
       ctx.save();
 
-      // 🌕 Magical Spotlight / Moonlight Glow under the Couple (Separates them from dark BG)
-      let auraGlow = ctx.createRadialGradient(cx, cy - 20, 10, cx, cy - 20, 130);
-      auraGlow.addColorStop(0, 'rgba(255, 215, 255, 0.35)');
-      auraGlow.addColorStop(0.5, 'rgba(138, 43, 226, 0.2)');
-      auraGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = auraGlow;
-      ctx.beginPath();
-      ctx.arc(cx, cy - 20, 130, 0, Math.PI * 2);
-      ctx.fill();
-
       // --- GIRL (Right Side, Standing, Shockingly Happy) ---
       const gx = cx + 50;
-      const gy = cy - 20;
+      const gy = cy - 25;
 
-      // Bright Flowy Pink Dress
-      ctx.fillStyle = '#ff6b9d';
-      ctx.shadowColor = 'rgba(255, 107, 157, 0.5)';
-      ctx.shadowBlur = 12;
+      // Bright Pink Flowy Dress
+      ctx.fillStyle = '#ff3366';
+      ctx.shadowColor = 'rgba(255, 51, 102, 0.3)';
+      ctx.shadowBlur = 10;
       ctx.beginPath();
       ctx.moveTo(gx - 8, gy - 55);
       ctx.quadraticCurveTo(gx - 35, gy + 10, gx - 40, gy + 35);
@@ -399,15 +407,15 @@
       ctx.quadraticCurveTo(gx + 20, gy + 10, gx + 8, gy - 55);
       ctx.fill();
 
-      // Girl Face & Neck
-      ctx.fillStyle = '#ffe0d2';
+      // Girl Face & Body
+      ctx.fillStyle = '#ffdfd3';
       ctx.shadowBlur = 0;
       ctx.beginPath();
       ctx.arc(gx, gy - 78, 14, 0, Math.PI * 2);
       ctx.fill();
 
-      // Girl Anime Hair (Bright Brown with Highlights)
-      ctx.fillStyle = '#6d3b28';
+      // Girl Anime Hair (Dark Brown)
+      ctx.fillStyle = '#4a2511';
       ctx.beginPath();
       ctx.arc(gx, gy - 80, 17, Math.PI * 0.8, Math.PI * 2.2);
       ctx.fill();
@@ -417,8 +425,8 @@
       ctx.quadraticCurveTo(gx - 5, gy - 30, gx - 10, gy - 75);
       ctx.fill();
 
-      // Hands to Face (Shockingly Happy Gesture)
-      ctx.strokeStyle = '#ffe0d2';
+      // Hands to Face (Shockingly Happy Expression)
+      ctx.strokeStyle = '#ffdfd3';
       ctx.lineWidth = 4;
       ctx.lineCap = 'round';
       ctx.beginPath();
@@ -429,22 +437,20 @@
       ctx.stroke();
 
       // Blushing Cheeks
-      ctx.fillStyle = '#ff3366';
+      ctx.fillStyle = '#ff1493';
       ctx.beginPath();
       ctx.arc(gx - 5, gy - 75, 3.5, 0, Math.PI * 2);
       ctx.arc(gx + 5, gy - 75, 3.5, 0, Math.PI * 2);
       ctx.fill();
 
-      // --- BOY (Left Side, Kneeling with Shiny Ring) ---
+      // --- BOY (Left Side, Kneeling with Ring) ---
       const bx = cx - 45;
       const by = cy;
 
-      // Royal Blue Suit (Contrast with Dark Night)
-      ctx.fillStyle = '#3a47d5';
-      ctx.shadowColor = 'rgba(58, 71, 213, 0.6)';
-      ctx.shadowBlur = 10;
+      // Dark Navy Blue Suit (Super Clear Contrast against Green Hill)
+      ctx.fillStyle = '#1e272e';
 
-      // Legs (Kneeling)
+      // Kneeling Legs
       ctx.beginPath();
       ctx.moveTo(bx - 15, by - 25);
       ctx.lineTo(bx - 42, by + 25);
@@ -467,52 +473,36 @@
       ctx.fill();
 
       // Face
-      ctx.fillStyle = '#ffe0d2';
-      ctx.shadowBlur = 0;
+      ctx.fillStyle = '#ffdfd3';
       ctx.beginPath();
       ctx.arc(bx - 2, by - 82, 13, 0, Math.PI * 2);
       ctx.fill();
 
-      // Anime Spiky Hair (Blonde/Golden so it pops)
-      ctx.fillStyle = '#ffcc00';
+      // Anime Spiky Hair (Golden Hair)
+      ctx.fillStyle = '#d4a373';
       ctx.beginPath();
       ctx.arc(bx - 2, by - 85, 15, Math.PI, Math.PI * 2);
       ctx.fill();
-      ctx.beginPath();
-      ctx.moveTo(bx - 17, by - 85);
-      ctx.lineTo(bx - 8, by - 98);
-      ctx.lineTo(bx, by - 88);
-      ctx.lineTo(bx + 8, by - 96);
-      ctx.lineTo(bx + 10, by - 82);
-      ctx.fill();
 
-      // Extended Arm
-      ctx.strokeStyle = '#ffe0d2';
+      // Arm Extended Offering Ring
+      ctx.strokeStyle = '#ffdfd3';
       ctx.lineWidth = 5;
       ctx.beginPath();
       ctx.moveTo(bx - 3, by - 58);
       ctx.lineTo(bx + 32, by - 55);
       ctx.stroke();
 
-      // 💍 BRIGHT SHINY DIAMOND RING BOX & SPARKLES
-      ctx.fillStyle = '#e6005c';
+      // 💍 SHINY DIAMOND RING BOX
+      ctx.fillStyle = '#d63031';
       ctx.fillRect(bx + 30, by - 62, 12, 12);
 
       // Diamond Sparkle
       ctx.fillStyle = '#ffffff';
-      ctx.shadowColor = '#ffffff';
-      ctx.shadowBlur = 20;
+      ctx.shadowColor = '#ffd700';
+      ctx.shadowBlur = 15;
       ctx.beginPath();
       ctx.arc(bx + 36, by - 65, 5, 0, Math.PI * 2);
       ctx.fill();
-
-      // Starburst rays from Ring
-      ctx.strokeStyle = '#ffd700';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(bx + 36, by - 75); ctx.lineTo(bx + 36, by - 55);
-      ctx.moveTo(bx + 26, by - 65); ctx.lineTo(bx + 46, by - 65);
-      ctx.stroke();
 
       ctx.restore();
     }
@@ -543,7 +533,7 @@
         ctx.globalAlpha = this.alpha;
         ctx.fillStyle = this.color;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, 3.5, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       }
@@ -568,7 +558,7 @@
       draw() {
         ctx.save();
         ctx.globalAlpha = this.opacity;
-        ctx.fillStyle = '#ff3366';
+        ctx.fillStyle = '#ff1493';
         ctx.beginPath();
         let topCurveHeight = this.size * 0.3;
         ctx.moveTo(this.x, this.y + topCurveHeight);
@@ -584,7 +574,7 @@
     function createFirework() {
       const x = Math.random() * (width * 0.8) + width * 0.1;
       const y = Math.random() * (height * 0.45) + height * 0.1;
-      const colors = ['#ff416c', '#ffd700', '#ff007f', '#00ffff', '#ffffff', '#ff6b81'];
+      const colors = ['#ff416c', '#ffd700', '#ff007f', '#001219', '#ffffff', '#ff6b81'];
       const color = colors[Math.floor(Math.random() * colors.length)];
       for (let i = 0; i < 75; i++) {
         fireworks.push(new Particle(x, y, color));
@@ -614,6 +604,7 @@
     }
 
     function goToStep2() {
+      // Play Music on first user interaction
       bgMusic.play().catch(() => {});
       const step1 = document.getElementById('step1');
       const step2 = document.getElementById('step2');
