@@ -56,7 +56,7 @@
       100% { opacity: 1; transform: scale(1.1); }
     }
 
-    /* 🌟 High Quality HD 2D Illustration Scene */
+    /* 🌟 Disney Fairytale Scene */
     .anime-scene {
       position: absolute;
       bottom: 0;
@@ -64,7 +64,7 @@
       transform: translateX(-50%);
       z-index: 3;
       width: 100%;
-      max-width: 520px;
+      max-width: 550px;
       display: flex;
       justify-content: center;
       align-items: flex-end;
@@ -74,8 +74,8 @@
     .anime-svg {
       width: 100%;
       height: auto;
-      max-height: 56vh;
-      filter: drop-shadow(0 12px 20px rgba(255, 105, 180, 0.45));
+      max-height: 58vh;
+      filter: drop-shadow(0 12px 22px rgba(255, 105, 180, 0.45));
     }
 
     /* UI Layer */
@@ -270,67 +270,121 @@
 
   <button class="music-btn" onclick="toggleMusic()">🎵 Music On/Off</button>
 
-  <!-- 🎵 Highly Melodious Romantic Instrumental Track -->
   <audio id="bgMusic" loop preload="auto" src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3"></audio>
 
-  <!-- 🌟 High Glowing Magic Overlay -->
   <div class="intense-glow" id="intenseGlow"></div>
 
   <canvas id="canvas"></canvas>
 
-  <!-- 🌟 Detailed Proposal Vector Art -->
   <div class="anime-scene">
     <svg class="anime-svg" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Ambient Glow Behind Couple -->
       <circle cx="300" cy="350" r="160" fill="url(#bgGlow)" opacity="0.5"/>
 
-      <!-- ---------------- BOY (Kneeling, Left Side) ---------------- -->
+      <!-- ---------------- Disney Prince (Boy Face & Body) ---------------- -->
       <g id="boy-character">
-        <path d="M 180 370 L 130 460 L 190 460 L 210 400 Z" fill="#1e272e"/>
-        <path d="M 210 370 L 280 410 L 270 460 L 200 460 L 180 400 Z" fill="#2c3e50"/>
-        <ellipse cx="125" cy="460" rx="15" ry="8" fill="#0f0f0f"/>
-        <ellipse cx="275" cy="460" rx="15" ry="8" fill="#0f0f0f"/>
-        <path d="M 170 280 L 230 280 L 220 380 L 160 380 Z" fill="#2c3e50"/>
-        <path d="M 190 280 L 205 320 L 220 280 Z" fill="#ffffff"/> 
-        <path d="M 200 295 L 203 330" stroke="#e74c3c" stroke-width="4"/> 
-        <rect x="185" y="250" width="15" height="30" rx="7" fill="#fbc5a2"/>
-        <circle cx="192" cy="235" r="26" fill="#fbc5a2"/>
-        <path d="M 198 238 Q 205 242 210 236" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <circle cx="205" cy="230" r="2.5" fill="#2c3e50"/> 
-        <path d="M 200 224 Q 206 222 211 225" stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/> 
-        <path d="M 192 210 C 165 210 162 245 168 255 C 175 235 185 220 192 220 C 200 220 212 232 218 245 C 222 230 215 210 192 210 Z" fill="#5c3d2e"/>
-        <path d="M 180 215 L 170 200 L 188 208 L 195 192 L 205 208 L 218 198 L 212 218 Z" fill="#5c3d2e"/>
-        <path d="M 210 295 L 295 305" stroke="#2c3e50" stroke-width="14" stroke-linecap="round"/>
-        <circle cx="298" cy="305" r="7" fill="#fbc5a2"/> 
+        <!-- Prince Boots & Trousers -->
+        <path d="M 175 365 L 125 460 L 190 460 L 205 395 Z" fill="#1c2833"/>
+        <path d="M 205 365 L 275 410 L 265 460 L 195 460 L 175 395 Z" fill="#2c3e50"/>
+        <ellipse cx="120" cy="460" rx="16" ry="9" fill="#0b0e11"/>
+        <ellipse cx="270" cy="460" rx="16" ry="9" fill="#0b0e11"/>
+
+        <!-- Regal Prince Jacket with Golden Epaulets -->
+        <path d="M 165 270 L 235 270 C 235 270 225 380 220 380 L 155 380 Z" fill="#2980b9"/>
+        <!-- Gold Trim Details -->
+        <path d="M 165 270 L 235 270" stroke="#f1c40f" stroke-width="6"/>
+        <path d="M 200 270 L 200 340" stroke="#f1c40f" stroke-width="5"/>
+        <path d="M 180 270 L 185 320 M 220 270 L 215 320" stroke="#f1c40f" stroke-width="2.5"/>
+        <!-- Red Royal Sash -->
+        <path d="M 170 275 L 220 365 L 205 375 L 160 285 Z" fill="#c0392b"/>
+
+        <!-- Disney Prince Face & Neck -->
+        <path d="M 180 245 Q 190 268 202 255 L 205 230 L 180 230 Z" fill="#fbc5a2"/> 
+        <circle cx="192" cy="228" r="27" fill="#fbc5a2"/>
+        
+        <!-- Disney Prince Hair -->
+        <path d="M 192 198 C 158 198 152 238 160 255 C 168 228 178 212 190 212 C 206 212 220 222 228 238 C 232 218 222 198 192 198 Z" fill="#3a1e05"/>
+        
+        <!-- Big Disney Eye (Boy) -->
+        <ellipse cx="206" cy="223" rx="5" ry="7" fill="#ffffff"/> 
+        <ellipse cx="208" cy="223" rx="3" ry="5" fill="#2980b9"/> 
+        <ellipse cx="209" cy="223" rx="1.5" ry="2.5" fill="#000000"/> 
+        <circle cx="208" cy="220" r="1.5" fill="#ffffff"/> 
+        
+        <!-- Disney Eyebrow, Nose & Confident Smile -->
+        <path d="M 197 213 Q 206 210 215 214" stroke="#2c1703" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <path d="M 215 230 Q 218 233 215 235" stroke="#d35400" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M 204 240 Q 212 245 218 238" stroke="#3a1e05" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+        <!-- Extended Arm Offering Ring -->
+        <path d="M 210 290 L 295 302" stroke="#2980b9" stroke-width="14" stroke-linecap="round"/>
+        <circle cx="298" cy="302" r="7" fill="#fbc5a2"/> 
       </g>
 
       <!-- ---------------- 💍 RING BOX & SPARKLING DIAMOND ---------------- -->
       <g id="ring-detail">
-        <rect x="298" y="292" width="22" height="22" rx="4" fill="#c0392b"/> 
-        <rect x="300" y="290" width="18" height="5" rx="2" fill="#e74c3c"/>
-        <circle cx="309" cy="286" r="6" stroke="#f1c40f" stroke-width="2" fill="none"/> 
-        <polygon points="309,278 313,283 305,283" fill="#ffffff"/> 
-        <circle cx="309" cy="280" r="14" fill="url(#diamondGlow)" opacity="0.9"/>
-        <path d="M 309 268 L 309 292 M 297 280 L 321 280" stroke="#ffffff" stroke-width="1.5" opacity="0.8"/>
+        <rect x="298" y="289" width="22" height="22" rx="4" fill="#c0392b"/> 
+        <rect x="300" y="287" width="18" height="5" rx="2" fill="#e74c3c"/>
+        <circle cx="309" cy="283" r="6" stroke="#f1c40f" stroke-width="2" fill="none"/> 
+        <polygon points="309,275 313,280 305,280" fill="#ffffff"/> 
+        <circle cx="309" cy="277" r="14" fill="url(#diamondGlow)" opacity="0.9"/>
+        <path d="M 309 265 L 309 289 M 297 277 L 321 277" stroke="#ffffff" stroke-width="1.5" opacity="0.8"/>
       </g>
 
-      <!-- ---------------- GIRL (Standing, Right Side) ---------------- -->
+      <!-- ---------------- Disney Princess (Girl Face & Body) ---------------- -->
       <g id="girl-character">
-        <path d="M 380 240 Q 330 320 290 460 L 470 460 Q 430 320 395 240 Z" fill="#ff477e"/>
-        <path d="M 388 240 Q 350 340 320 460 L 440 460 Q 410 340 390 240 Z" fill="#ff6b81" opacity="0.6"/>
-        <path d="M 373 210 Q 388 220 402 210 L 400 242 L 375 242 Z" fill="#ff2a6d"/>
-        <rect x="381" y="195" width="13" height="20" rx="6" fill="#ffe0bd"/>
-        <circle cx="388" cy="175" r="26" fill="#ffe0bd"/>
-        <path d="M 373 172 Q 377 167 381 172" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/> 
-        <path d="M 394 172 Q 398 167 402 172" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/> 
-        <ellipse cx="388" cy="184" rx="4" ry="5" fill="#4a2e2b"/> 
-        <circle cx="374" cy="180" r="6" fill="#ff477e" opacity="0.6"/> 
-        <circle cx="402" cy="180" r="6" fill="#ff477e" opacity="0.6"/> 
-        <path d="M 388 145 C 355 145 350 185 345 280 Q 365 260 375 200" fill="#3a1e05"/>
-        <path d="M 388 145 C 420 145 425 185 430 280 Q 410 260 400 200" fill="#3a1e05"/>
-        <path d="M 388 147 C 362 147 360 170 360 185 C 372 175 382 175 388 182 C 394 175 404 175 416 185 C 416 170 414 147 388 147 Z" fill="#4a2e2b"/>
-        <path d="M 368 225 Q 378 200 384 198" stroke="#ffe0bd" stroke-width="8" stroke-linecap="round" fill="none"/>
-        <path d="M 408 225 Q 398 200 392 198" stroke="#ffe0bd" stroke-width="8" stroke-linecap="round" fill="none"/>
+        <!-- Flowing Layered Disney Ballgown -->
+        <path d="M 380 230 Q 320 310 275 460 L 485 460 Q 440 310 395 230 Z" fill="#ff3366"/>
+        <path d="M 388 230 Q 345 330 310 460 L 450 460 Q 415 330 390 230 Z" fill="#ff6b81" opacity="0.7"/>
+        <path d="M 388 230 Q 365 350 345 460 L 415 460 Q 395 350 390 230 Z" fill="#ff9ff3" opacity="0.5"/>
+
+        <!-- Magical Sparkles on Dress -->
+        <circle cx="330" cy="400" r="3" fill="#ffffff" opacity="0.8"/>
+        <circle cx="430" cy="420" r="4" fill="#ffffff" opacity="0.9"/>
+        <circle cx="380" cy="380" r="2.5" fill="#ffffff" opacity="0.7"/>
+
+        <!-- Disney Off-Shoulder Corset & Puff Sleeves -->
+        <path d="M 370 205 Q 388 215 405 205 L 400 235 L 375 235 Z" fill="#d63031"/>
+        <circle cx="365" cy="212" r="10" fill="#ff477e"/>
+        <circle cx="410" cy="212" r="10" fill="#ff477e"/>
+
+        <!-- Disney Princess Neck & Head -->
+        <path d="M 375 195 Q 388 205 395 195 L 395 175 L 375 175 Z" fill="#ffe0bd"/>
+        <circle cx="388" cy="170" r="28" fill="#ffe0bd"/>
+        
+        <!-- Big Sparkling Disney Eyes (Left & Right) -->
+        <ellipse cx="374" cy="168" rx="6" ry="9" fill="#ffffff"/>
+        <ellipse cx="372" cy="169" rx="3.5" ry="6" fill="#8e44ad"/> 
+        <ellipse cx="371" cy="169" rx="2" ry="3.5" fill="#000000"/>
+        <circle cx="370" cy="165" r="2" fill="#ffffff"/>
+        <circle cx="373" cy="171" r="0.8" fill="#ffffff"/>
+        <path d="M 366 165 Q 374 156 381 166" stroke="#2c3e50" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <path d="M 366 165 L 362 161 M 369 160 L 366 155" stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/>
+
+        <ellipse cx="396" cy="168" rx="6" ry="9" fill="#ffffff"/>
+        <ellipse cx="394" cy="169" rx="3.5" ry="6" fill="#8e44ad"/>
+        <ellipse cx="393" cy="169" rx="2" ry="3.5" fill="#000000"/>
+        <circle cx="392" cy="165" r="2" fill="#ffffff"/>
+        <circle cx="395" cy="171" r="0.8" fill="#ffffff"/>
+        <path d="M 389 166 Q 396 156 403 165" stroke="#2c3e50" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <path d="M 403 165 L 407 161 M 399 160 L 402 155" stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/>
+
+        <!-- Cute Nose & Open Joyful Mouth -->
+        <path d="M 382 178 Q 385 181 382 183" stroke="#e67e22" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M 378 188 Q 385 195 392 188 Z" fill="#c0392b"/> 
+        <path d="M 378 188 Q 385 191 392 188 Z" fill="#ffffff"/> 
+
+        <!-- Rosy Cheeks -->
+        <ellipse cx="365" cy="178" rx="5" ry="3" fill="#ff477e" opacity="0.6"/>
+        <ellipse cx="405" cy="178" rx="5" ry="3" fill="#ff477e" opacity="0.6"/>
+
+        <!-- Disney Princess Long Waves & Crown Hair -->
+        <path d="M 388 138 C 340 138 335 190 330 295 Q 355 260 375 195" fill="#3a1e05"/>
+        <path d="M 388 138 C 435 138 440 190 445 295 Q 420 260 400 195" fill="#3a1e05"/>
+        <path d="M 388 140 C 350 140 355 170 355 180 C 370 165 385 160 388 175 C 390 160 405 165 420 180 C 420 170 425 140 388 140 Z" fill="#4a2e2b"/>
+
+        <!-- Princess Hands Held to Chest with Excitement -->
+        <path d="M 362 218 Q 376 195 382 195" stroke="#ffe0bd" stroke-width="7" stroke-linecap="round" fill="none"/>
+        <path d="M 412 218 Q 398 195 392 195" stroke="#ffe0bd" stroke-width="7" stroke-linecap="round" fill="none"/>
       </g>
 
       <defs>
@@ -348,13 +402,12 @@
   </div>
 
   <div class="ui-layer">
-    <!-- Step 1 Card -->
+    <!-- Step 1 Card with updated opening text -->
     <div class="card" id="step1">
       <h1>Hey Gora... ❤️</h1>
       <p>
-        We are so far apart from each other... 🌸<br>
-        I wanted to take you somewhere special in this beautiful weather, but I couldn't.<br><br>
-        So, I created this <b>virtual fairytale world</b> just for you... ✨
+        We are so far apart from each other and our relationship is facing the consequences of this... 🌸<br><br>
+        So, I want to tell you something... ✨
       </p>
       <button class="btn btn-next" onclick="goToStep2()">Step Inside ✨</button>
     </div>
@@ -404,7 +457,6 @@
       }
     }
 
-    // Floating Petals Background
     const petals = Array.from({ length: 30 }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
@@ -421,8 +473,6 @@
 
     function drawScene() {
       ctx.clearRect(0, 0, width, height);
-
-      // Floating Petals
       petals.forEach(p => {
         p.y += p.speedY;
         p.x += p.speedX;
@@ -442,7 +492,6 @@
       });
     }
 
-    // Fireworks Particles
     class Particle {
       constructor(x, y, color) {
         this.x = x;
@@ -472,7 +521,6 @@
       }
     }
 
-    // Heart Rain Particles
     class Heart {
       constructor() {
         this.x = Math.random() * width;
@@ -502,7 +550,6 @@
       }
     }
 
-    // 🌟 Magic Fairy Bubbles
     class MagicBubble {
       constructor() {
         this.x = Math.random() * width;
@@ -528,7 +575,6 @@
         ctx.strokeStyle = `hsla(${this.hue}, 100%, 95%, 0.9)`;
         ctx.stroke();
         
-        // Inner reflection for 3D look
         ctx.beginPath();
         ctx.arc(this.x - this.size * 0.3, this.y - this.size * 0.3, this.size * 0.2, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
@@ -551,7 +597,6 @@
       drawScene();
 
       if (isCelebrating) {
-        // Fireworks
         if (Math.random() < 0.15) createFirework();
         fireworks.forEach((p, index) => {
           p.update();
@@ -559,7 +604,6 @@
           if (p.alpha <= 0) fireworks.splice(index, 1);
         });
 
-        // Hearts
         if (Math.random() < 0.4) hearts.push(new Heart());
         hearts.forEach((h, index) => {
           h.update();
@@ -567,7 +611,6 @@
           if (h.y > height) hearts.splice(index, 1);
         });
 
-        // 🌟 Magic Bubbles
         if (Math.random() < 0.5) magicBubbles.push(new MagicBubble());
         magicBubbles.forEach((b, index) => {
           b.update();
@@ -581,7 +624,6 @@
 
     function goToStep2() {
       bgMusic.play().catch(() => {});
-
       const step1 = document.getElementById('step1');
       const step2 = document.getElementById('step2');
 
@@ -597,11 +639,9 @@
 
     function startCelebration() {
       isCelebrating = true;
-
       const step2 = document.getElementById('step2');
       step2.style.opacity = '0';
 
-      // 🌟 Trigger Intense Magical Glow
       const intenseGlow = document.getElementById('intenseGlow');
       intenseGlow.classList.add('active');
 
@@ -611,12 +651,11 @@
         loveMessage.classList.add('show');
       }, 500);
 
-      // Transition to final screen
       setTimeout(() => {
         const finalScreen = document.getElementById('finalScreen');
         finalScreen.classList.add('active');
-        intenseGlow.style.opacity = '0'; // Fade out glow
-      }, 7500); // 7.5 seconds of beautiful celebration
+        intenseGlow.style.opacity = '0'; 
+      }, 7500); 
     }
 
     animate();
