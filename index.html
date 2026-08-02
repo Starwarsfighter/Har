@@ -31,6 +31,31 @@
       z-index: 1;
     }
 
+    /* 🌟 High Glowing Magical Screen Effect */
+    .intense-glow {
+      position: absolute;
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255,255,255,1) 0%, rgba(255,218,233,0.8) 40%, rgba(255,105,180,0) 100%);
+      opacity: 0;
+      z-index: 14; 
+      pointer-events: none;
+      transition: opacity 1.5s ease-in-out;
+      mix-blend-mode: screen;
+    }
+
+    .intense-glow.active {
+      opacity: 1;
+      animation: magicPulse 2.5s infinite alternate;
+    }
+
+    @keyframes magicPulse {
+      0% { opacity: 0.6; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.1); }
+    }
+
     /* 🌟 High Quality HD 2D Illustration Scene */
     .anime-scene {
       position: absolute;
@@ -56,7 +81,7 @@
     /* UI Layer */
     .ui-layer {
       position: relative;
-      z-index: 10;
+      z-index: 15;
       width: 100%;
       height: 100%;
       display: flex;
@@ -140,13 +165,13 @@
     .love-message-overlay {
       position: absolute;
       top: 18%;
-      z-index: 15;
+      z-index: 20;
       text-align: center;
       width: 90%;
       max-width: 650px;
       opacity: 0;
       transform: scale(0.8);
-      transition: all 1s ease;
+      transition: all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       pointer-events: none;
     }
 
@@ -157,9 +182,9 @@
 
     .love-message-overlay h2 {
       font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
+      font-size: 3.2rem;
       color: #ff1493;
-      text-shadow: 0 0 15px #ffffff, 0 0 25px #ffb6c1;
+      text-shadow: 0 0 15px #ffffff, 0 0 30px #ffb6c1, 0 0 45px #ff477e;
       line-height: 1.4;
     }
 
@@ -248,9 +273,12 @@
   <!-- 🎵 Highly Melodious Romantic Instrumental Track -->
   <audio id="bgMusic" loop preload="auto" src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3"></audio>
 
+  <!-- 🌟 High Glowing Magic Overlay -->
+  <div class="intense-glow" id="intenseGlow"></div>
+
   <canvas id="canvas"></canvas>
 
-  <!-- 🌟 Detailed Proposal Vector Art (Handsome Boy, Beautiful Girl & Sparkling Diamond Ring) -->
+  <!-- 🌟 Detailed Proposal Vector Art -->
   <div class="anime-scene">
     <svg class="anime-svg" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
       <!-- Ambient Glow Behind Couple -->
@@ -258,84 +286,53 @@
 
       <!-- ---------------- BOY (Kneeling, Left Side) ---------------- -->
       <g id="boy-character">
-        <!-- Legs & Kneeling Pose -->
         <path d="M 180 370 L 130 460 L 190 460 L 210 400 Z" fill="#1e272e"/>
         <path d="M 210 370 L 280 410 L 270 460 L 200 460 L 180 400 Z" fill="#2c3e50"/>
-        
-        <!-- Black Shoes -->
         <ellipse cx="125" cy="460" rx="15" ry="8" fill="#0f0f0f"/>
         <ellipse cx="275" cy="460" rx="15" ry="8" fill="#0f0f0f"/>
-
-        <!-- Stylish Dark Blue Suit Jacket -->
         <path d="M 170 280 L 230 280 L 220 380 L 160 380 Z" fill="#2c3e50"/>
-        <path d="M 190 280 L 205 320 L 220 280 Z" fill="#ffffff"/> <!-- White Shirt Inside -->
-        <path d="M 200 295 L 203 330" stroke="#e74c3c" stroke-width="4"/> <!-- Red Tie -->
-
-        <!-- Boy Face & Skin -->
+        <path d="M 190 280 L 205 320 L 220 280 Z" fill="#ffffff"/> 
+        <path d="M 200 295 L 203 330" stroke="#e74c3c" stroke-width="4"/> 
         <rect x="185" y="250" width="15" height="30" rx="7" fill="#fbc5a2"/>
         <circle cx="192" cy="235" r="26" fill="#fbc5a2"/>
-        
-        <!-- Handsome Facial Features -->
-        <path d="M 198 238 Q 205 242 210 236" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/> <!-- Gentle Smile -->
-        <circle cx="205" cy="230" r="2.5" fill="#2c3e50"/> <!-- Eye -->
-        <path d="M 200 224 Q 206 222 211 225" stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/> <!-- Eyebrow -->
-
-        <!-- Modern Handsome Brown Hair -->
+        <path d="M 198 238 Q 205 242 210 236" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <circle cx="205" cy="230" r="2.5" fill="#2c3e50"/> 
+        <path d="M 200 224 Q 206 222 211 225" stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/> 
         <path d="M 192 210 C 165 210 162 245 168 255 C 175 235 185 220 192 220 C 200 220 212 232 218 245 C 222 230 215 210 192 210 Z" fill="#5c3d2e"/>
         <path d="M 180 215 L 170 200 L 188 208 L 195 192 L 205 208 L 218 198 L 212 218 Z" fill="#5c3d2e"/>
-
-        <!-- Extended Arm Offering Ring -->
         <path d="M 210 295 L 295 305" stroke="#2c3e50" stroke-width="14" stroke-linecap="round"/>
-        <circle cx="298" cy="305" r="7" fill="#fbc5a2"/> <!-- Hand -->
+        <circle cx="298" cy="305" r="7" fill="#fbc5a2"/> 
       </g>
 
       <!-- ---------------- 💍 RING BOX & SPARKLING DIAMOND ---------------- -->
       <g id="ring-detail">
-        <rect x="298" y="292" width="22" height="22" rx="4" fill="#c0392b"/> <!-- Velvet Red Box -->
+        <rect x="298" y="292" width="22" height="22" rx="4" fill="#c0392b"/> 
         <rect x="300" y="290" width="18" height="5" rx="2" fill="#e74c3c"/>
-        
-        <!-- Diamond Ring Inside Box -->
-        <circle cx="309" cy="286" r="6" stroke="#f1c40f" stroke-width="2" fill="none"/> <!-- Gold Ring Band -->
-        <polygon points="309,278 313,283 305,283" fill="#ffffff"/> <!-- Diamond -->
-        
-        <!-- Diamond Sparkle Effect -->
+        <circle cx="309" cy="286" r="6" stroke="#f1c40f" stroke-width="2" fill="none"/> 
+        <polygon points="309,278 313,283 305,283" fill="#ffffff"/> 
         <circle cx="309" cy="280" r="14" fill="url(#diamondGlow)" opacity="0.9"/>
         <path d="M 309 268 L 309 292 M 297 280 L 321 280" stroke="#ffffff" stroke-width="1.5" opacity="0.8"/>
       </g>
 
       <!-- ---------------- GIRL (Standing, Right Side) ---------------- -->
       <g id="girl-character">
-        <!-- Gorgeous Flowing Pink Ballgown -->
         <path d="M 380 240 Q 330 320 290 460 L 470 460 Q 430 320 395 240 Z" fill="#ff477e"/>
         <path d="M 388 240 Q 350 340 320 460 L 440 460 Q 410 340 390 240 Z" fill="#ff6b81" opacity="0.6"/>
-        
-        <!-- Dress Upper Top -->
         <path d="M 373 210 Q 388 220 402 210 L 400 242 L 375 242 Z" fill="#ff2a6d"/>
-
-        <!-- Skin & Neck -->
         <rect x="381" y="195" width="13" height="20" rx="6" fill="#ffe0bd"/>
-        
-        <!-- Girl Face -->
         <circle cx="388" cy="175" r="26" fill="#ffe0bd"/>
-        
-        <!-- Beautiful Facial Expression (Emotional & Blushing) -->
-        <path d="M 373 172 Q 377 167 381 172" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/> <!-- Left Happy Eye -->
-        <path d="M 394 172 Q 398 167 402 172" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/> <!-- Right Happy Eye -->
-        <ellipse cx="388" cy="184" rx="4" ry="5" fill="#4a2e2b"/> <!-- Happy Wow Mouth -->
-        <circle cx="374" cy="180" r="6" fill="#ff477e" opacity="0.6"/> <!-- Left Blush -->
-        <circle cx="402" cy="180" r="6" fill="#ff477e" opacity="0.6"/> <!-- Right Blush -->
-
-        <!-- Long Beautiful Brown Hair -->
+        <path d="M 373 172 Q 377 167 381 172" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/> 
+        <path d="M 394 172 Q 398 167 402 172" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/> 
+        <ellipse cx="388" cy="184" rx="4" ry="5" fill="#4a2e2b"/> 
+        <circle cx="374" cy="180" r="6" fill="#ff477e" opacity="0.6"/> 
+        <circle cx="402" cy="180" r="6" fill="#ff477e" opacity="0.6"/> 
         <path d="M 388 145 C 355 145 350 185 345 280 Q 365 260 375 200" fill="#3a1e05"/>
         <path d="M 388 145 C 420 145 425 185 430 280 Q 410 260 400 200" fill="#3a1e05"/>
         <path d="M 388 147 C 362 147 360 170 360 185 C 372 175 382 175 388 182 C 394 175 404 175 416 185 C 416 170 414 147 388 147 Z" fill="#4a2e2b"/>
-
-        <!-- Delicate Hands Placed on Chest (Overcome with Joy) -->
         <path d="M 368 225 Q 378 200 384 198" stroke="#ffe0bd" stroke-width="8" stroke-linecap="round" fill="none"/>
         <path d="M 408 225 Q 398 200 392 198" stroke="#ffe0bd" stroke-width="8" stroke-linecap="round" fill="none"/>
       </g>
 
-      <!-- Gradients -->
       <defs>
         <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stop-color="#ffffff"/>
@@ -351,7 +348,7 @@
   </div>
 
   <div class="ui-layer">
-    <!-- Step 1 Card (English Translated Message) -->
+    <!-- Step 1 Card -->
     <div class="card" id="step1">
       <h1>Hey Gora... ❤️</h1>
       <p>
@@ -419,6 +416,7 @@
 
     let fireworks = [];
     let hearts = [];
+    let magicBubbles = [];
     let isCelebrating = false;
 
     function drawScene() {
@@ -457,14 +455,12 @@
         this.alpha = 1;
         this.decay = Math.random() * 0.02 + 0.01;
       }
-
       update() {
         this.speed *= this.friction;
         this.x += Math.cos(this.angle) * this.speed;
         this.y += Math.sin(this.angle) * this.speed + this.gravity;
         this.alpha -= this.decay;
       }
-
       draw() {
         ctx.save();
         ctx.globalAlpha = this.alpha;
@@ -486,12 +482,10 @@
         this.opacity = Math.random() * 0.7 + 0.3;
         this.velX = (Math.random() - 0.5) * 2;
       }
-
       update() {
         this.y += this.speed;
         this.x += this.velX;
       }
-
       draw() {
         ctx.save();
         ctx.globalAlpha = this.opacity;
@@ -503,6 +497,41 @@
         ctx.bezierCurveTo(this.x - this.size / 2, this.y + (this.size + topCurveHeight) / 2, this.x, this.y + this.size, this.x, this.y + this.size);
         ctx.bezierCurveTo(this.x, this.y + this.size, this.x + this.size / 2, this.y + (this.size + topCurveHeight) / 2, this.x + this.size / 2, this.y + topCurveHeight);
         ctx.bezierCurveTo(this.x + this.size / 2, this.y, this.x, this.y, this.x, this.y + topCurveHeight);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    // 🌟 Magic Fairy Bubbles
+    class MagicBubble {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = height + 20;
+        this.size = Math.random() * 12 + 6;
+        this.speedY = Math.random() * 2 + 1.5;
+        this.speedX = (Math.random() - 0.5) * 1.5;
+        this.opacity = Math.random() * 0.5 + 0.3;
+        this.hue = Math.random() > 0.5 ? 330 : 50; 
+      }
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX + Math.sin(this.y * 0.05) * 0.5; 
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.opacity;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${this.hue}, 100%, 85%, 0.4)`;
+        ctx.fill();
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = `hsla(${this.hue}, 100%, 95%, 0.9)`;
+        ctx.stroke();
+        
+        // Inner reflection for 3D look
+        ctx.beginPath();
+        ctx.arc(this.x - this.size * 0.3, this.y - this.size * 0.3, this.size * 0.2, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
         ctx.fill();
         ctx.restore();
       }
@@ -522,6 +551,7 @@
       drawScene();
 
       if (isCelebrating) {
+        // Fireworks
         if (Math.random() < 0.15) createFirework();
         fireworks.forEach((p, index) => {
           p.update();
@@ -529,11 +559,20 @@
           if (p.alpha <= 0) fireworks.splice(index, 1);
         });
 
+        // Hearts
         if (Math.random() < 0.4) hearts.push(new Heart());
         hearts.forEach((h, index) => {
           h.update();
           h.draw();
           if (h.y > height) hearts.splice(index, 1);
+        });
+
+        // 🌟 Magic Bubbles
+        if (Math.random() < 0.5) magicBubbles.push(new MagicBubble());
+        magicBubbles.forEach((b, index) => {
+          b.update();
+          b.draw();
+          if (b.y < -30) magicBubbles.splice(index, 1);
         });
       }
 
@@ -541,7 +580,6 @@
     }
 
     function goToStep2() {
-      // Play Romantic Piano Song on click
       bgMusic.play().catch(() => {});
 
       const step1 = document.getElementById('step1');
@@ -563,16 +601,22 @@
       const step2 = document.getElementById('step2');
       step2.style.opacity = '0';
 
+      // 🌟 Trigger Intense Magical Glow
+      const intenseGlow = document.getElementById('intenseGlow');
+      intenseGlow.classList.add('active');
+
       setTimeout(() => {
         step2.style.display = 'none';
         const loveMessage = document.getElementById('loveMessage');
         loveMessage.classList.add('show');
       }, 500);
 
+      // Transition to final screen
       setTimeout(() => {
         const finalScreen = document.getElementById('finalScreen');
         finalScreen.classList.add('active');
-      }, 6500);
+        intenseGlow.style.opacity = '0'; // Fade out glow
+      }, 7500); // 7.5 seconds of beautiful celebration
     }
 
     animate();
