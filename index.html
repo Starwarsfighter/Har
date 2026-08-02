@@ -18,10 +18,11 @@
       height: 100%;
       overflow: hidden;
       font-family: 'Poppins', sans-serif;
-      background: #87ceeb;
+      background: linear-gradient(135deg, #a8ebe6 0%, #ff8bb0 100%);
       color: #333;
     }
 
+    /* Fairytale Background Canvas for Sky & Petals */
     #canvas {
       position: absolute;
       top: 0;
@@ -31,6 +32,30 @@
       z-index: 1;
     }
 
+    /* Beautiful 2D Anime Proposal Vector Art Scene */
+    .anime-scene {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      pointer-events: none;
+    }
+
+    .anime-svg {
+      width: 100%;
+      height: auto;
+      max-height: 52vh;
+      filter: drop-shadow(0 10px 15px rgba(255, 105, 180, 0.4));
+      animation: floatGentle 3.5s ease-in-out infinite alternate;
+    }
+
+    /* UI Layer */
     .ui-layer {
       position: relative;
       z-index: 10;
@@ -40,21 +65,21 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 35px;
+      padding-top: 30px;
       pointer-events: none;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 2px solid rgba(255, 182, 193, 0.9);
-      padding: 28px 24px;
+      padding: 26px 22px;
       border-radius: 25px;
       max-width: 90%;
-      width: 480px;
+      width: 460px;
       text-align: center;
-      box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.8);
+      box-shadow: 0 15px 35px rgba(255, 105, 180, 0.35);
       pointer-events: auto;
       animation: fadeIn 1.2s ease-out;
       transition: all 0.8s ease;
@@ -64,15 +89,14 @@
       font-family: 'Dancing Script', cursive;
       font-size: 2.8rem;
       color: #ff3366;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 8px rgba(255, 51, 102, 0.2);
+      margin-bottom: 8px;
     }
 
     p {
-      font-size: 1.05rem;
-      line-height: 1.7;
+      font-size: 1rem;
+      line-height: 1.65;
       color: #4a4a4a;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       font-weight: 400;
     }
 
@@ -82,7 +106,7 @@
     }
 
     .tap-hint {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: #ff3366;
       margin-bottom: 8px;
       font-weight: 600;
@@ -94,8 +118,8 @@
       background: linear-gradient(135deg, #ff416c, #ff4b2b);
       color: white;
       border: none;
-      padding: 16px 38px;
-      font-size: 1.25rem;
+      padding: 15px 36px;
+      font-size: 1.2rem;
       font-weight: 600;
       border-radius: 50px;
       cursor: pointer;
@@ -117,7 +141,7 @@
 
     .love-message-overlay {
       position: absolute;
-      top: 20%;
+      top: 18%;
       z-index: 15;
       text-align: center;
       width: 90%;
@@ -186,6 +210,11 @@
       50% { transform: translateY(-8px) scale(1.05); box-shadow: 0 12px 30px rgba(255, 65, 108, 0.7); }
     }
 
+    @keyframes floatGentle {
+      from { transform: translateX(-50%) translateY(0px); }
+      to { transform: translateX(-50%) translateY(-10px); }
+    }
+
     @keyframes blinkText {
       from { opacity: 0.6; }
       to { opacity: 1; }
@@ -206,9 +235,9 @@
       top: 15px;
       right: 15px;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 105, 180, 0.4);
+      border: 1px solid rgba(255, 105, 180, 0.5);
       color: #ff3366;
       padding: 8px 16px;
       border-radius: 20px;
@@ -222,11 +251,88 @@
 <body>
 
   <button class="music-btn" onclick="toggleMusic()">🎵 Music On/Off</button>
-  
-  <!-- 100% Working Sweet Romantic Instrumental Music -->
-  <audio id="bgMusic" loop preload="auto" src="https://assets.mixkit.co/music/preview/mixkit-romantic-pete-533.mp3"></audio>
 
   <canvas id="canvas"></canvas>
+
+  <!-- 🌟 High-Quality 2D Anime Proposal Vector Art (Shocked Girl & Kneeling Boy with Ring) -->
+  <div class="anime-scene">
+    <svg class="anime-svg" viewBox="0 0 500 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Glow Aura -->
+      <circle cx="250" cy="380" r="140" fill="url(#glowGradient)" opacity="0.6"/>
+      
+      <!-- GIRL (Right Side, Standing, Shocked & Happy with hands on face) -->
+      <g id="girl">
+        <!-- Flowy Pink Dress -->
+        <path d="M 310 210 Q 280 280 250 410 L 390 410 Q 360 280 330 210 Z" fill="#FF477E"/>
+        <path d="M 320 210 Q 300 300 275 410 L 365 410 Q 340 300 320 210 Z" fill="#FF5C8A" opacity="0.6"/>
+        
+        <!-- Girl Body & Neck -->
+        <rect x="314" y="185" width="12" height="28" rx="6" fill="#FFD1DC"/>
+        
+        <!-- Girl Head & Blushing Face -->
+        <circle cx="320" cy="160" r="28" fill="#FFD1DC"/>
+        <circle cx="308" cy="165" r="6" fill="#FF85A1" opacity="0.7"/> <!-- Left Blush -->
+        <circle cx="332" cy="165" r="6" fill="#FF85A1" opacity="0.7"/> <!-- Right Blush -->
+        
+        <!-- Shocked Happy Eyes & Mouth Expression -->
+        <path d="M 305 155 Q 310 148 315 155" stroke="#5C3D2E" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M 325 155 Q 330 148 335 155" stroke="#5C3D2E" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="320" cy="172" rx="5" ry="7" fill="#5C3D2E"/> <!-- O-shaped shocked happy mouth -->
+        
+        <!-- Hands Covering Face (Overwhelmed Joy) -->
+        <path d="M 300 215 C 295 185 302 165 310 162" stroke="#FFD1DC" stroke-width="10" stroke-linecap="round" fill="none"/>
+        <path d="M 340 215 C 345 185 338 165 330 162" stroke="#FFD1DC" stroke-width="10" stroke-linecap="round" fill="none"/>
+
+        <!-- Anime Hair (Long Brown Hair) -->
+        <path d="M 320 130 C 290 130 285 170 280 260 Q 300 240 310 180" fill="#4A2511"/>
+        <path d="M 320 130 C 350 130 355 170 360 260 Q 340 240 330 180" fill="#4A2511"/>
+        <path d="M 320 132 C 298 132 295 155 295 170 C 305 160 315 160 320 168 C 325 160 335 160 345 170 C 345 155 342 132 320 132 Z" fill="#5C3D2E"/>
+      </g>
+
+      <!-- BOY (Left Side, Kneeling, Offering Ring) -->
+      <g id="boy">
+        <!-- Kneeling Suit Pants -->
+        <path d="M 170 320 L 110 410 L 160 410 L 190 350 Z" fill="#1D2A44"/> <!-- Back Leg -->
+        <path d="M 190 320 L 250 370 L 240 410 L 180 410 L 160 350 Z" fill="#2B3A55"/> <!-- Front Kneeling Leg -->
+
+        <!-- Suit Jacket Body -->
+        <path d="M 160 250 L 205 250 L 200 330 L 150 330 Z" fill="#2B3A55"/>
+        <path d="M 175 250 L 190 280 L 200 250 Z" fill="#FFFFFF"/> <!-- Shirt Collar -->
+        <path d="M 183 260 L 187 290" stroke="#FF477E" stroke-width="3"/> <!-- Red Tie -->
+
+        <!-- Boy Face & Neck -->
+        <rect x="172" y="225" width="12" height="28" rx="6" fill="#FFD1DC"/>
+        <circle cx="178" cy="210" r="24" fill="#FFD1DC"/>
+        <path d="M 182 212 Q 188 218 194 212" stroke="#5C3D2E" stroke-width="3" stroke-linecap="round" fill="none"/> <!-- Gentle Smile -->
+
+        <!-- Spiky Anime Hair (Golden/Brown) -->
+        <path d="M 178 185 C 150 185 150 220 155 230 C 160 210 170 195 178 195 C 185 195 195 210 200 225 C 205 210 200 185 178 185 Z" fill="#B07D4F"/>
+        <path d="M 165 190 L 155 178 L 172 184 L 178 170 L 188 184 L 200 175 L 195 192 Z" fill="#B07D4F"/>
+
+        <!-- Extended Arm holding Ring Box -->
+        <path d="M 190 260 L 255 270" stroke="#2B3A55" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="258" cy="270" r="6" fill="#FFD1DC"/> <!-- Hand -->
+
+        <!-- 💍 Glowing Red Ring Box & Diamond -->
+        <rect x="258" y="258" width="18" height="18" rx="3" fill="#D63031"/>
+        <polygon points="267,248 272,255 262,255" fill="#FFFFFF"/>
+        <circle cx="267" cy="251" r="10" fill="url(#ringGlow)" opacity="0.8"/>
+      </g>
+
+      <!-- Gradients -->
+      <defs>
+        <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFD1DC"/>
+          <stop offset="100%" stop-color="#FFD1DC" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFFFFF"/>
+          <stop offset="50%" stop-color="#FFD700"/>
+          <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+    </svg>
+  </div>
 
   <div class="ui-layer">
     <!-- Step 1 Card -->
@@ -267,7 +373,6 @@
   <script>
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
-    const bgMusic = document.getElementById('bgMusic');
 
     let width, height;
     function resize() {
@@ -277,28 +382,79 @@
     window.addEventListener('resize', resize);
     resize();
 
+    // 🎵 INBUILT WEBAUDIO ROMANTIC PIANO SYNTHESIZER (100% Reliable, No External File Needed!)
+    let audioCtx = null;
+    let isMusicPlaying = false;
+    let musicInterval = null;
+
+    const romanticNotes = [
+      261.63, 329.63, 392.00, 523.25, // C4, E4, G4, C5
+      293.66, 349.23, 440.00, 587.33, // D4, F4, A4, D5
+      329.63, 392.00, 493.88, 659.25, // E4, G4, B4, E5
+      349.23, 440.00, 523.25, 698.46  // F4, A4, C5, F5
+    ];
+
+    function playPianoNote(freq, duration = 1.8) {
+      if (!audioCtx) return;
+      try {
+        let osc = audioCtx.createOscillator();
+        let gain = audioCtx.createGain();
+        
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+        
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch(e) {}
+    }
+
+    function startRomanticMusic() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      
+      isMusicPlaying = true;
+      let noteIndex = 0;
+
+      if (musicInterval) clearInterval(musicInterval);
+
+      // Plays soft melodious piano arpeggios
+      musicInterval = setInterval(() => {
+        if (!isMusicPlaying) return;
+        let note1 = romanticNotes[noteIndex % romanticNotes.length];
+        let note2 = romanticNotes[(noteIndex + 2) % romanticNotes.length];
+        
+        playPianoNote(note1, 2.0);
+        setTimeout(() => playPianoNote(note2, 1.8), 300);
+        
+        noteIndex++;
+      }, 800);
+    }
+
     function toggleMusic() {
-      if (bgMusic.paused) {
-        bgMusic.play();
+      if (isMusicPlaying) {
+        isMusicPlaying = false;
+        if (musicInterval) clearInterval(musicInterval);
       } else {
-        bgMusic.pause();
+        startRomanticMusic();
       }
     }
 
-    // Clouds for Day Sky
-    const clouds = Array.from({ length: 5 }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * (window.innerHeight * 0.3),
-      speed: Math.random() * 0.3 + 0.1,
-      size: Math.random() * 40 + 60
-    }));
-
-    // Floating Petals
-    const petals = Array.from({ length: 25 }, () => ({
+    // Floating Petals Background
+    const petals = Array.from({ length: 30 }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
-      size: Math.random() * 6 + 4,
-      speedY: Math.random() * 1 + 0.5,
+      size: Math.random() * 7 + 4,
+      speedY: Math.random() * 1 + 0.6,
       speedX: Math.random() * 0.6 - 0.3,
       angle: Math.random() * Math.PI * 2
     }));
@@ -308,62 +464,9 @@
     let isCelebrating = false;
 
     function drawScene() {
-      // Daylight Sky Gradient
-      let skyGradient = ctx.createLinearGradient(0, 0, 0, height);
-      skyGradient.addColorStop(0, '#70c1ff');
-      skyGradient.addColorStop(0.6, '#bce2ff');
-      skyGradient.addColorStop(1, '#e8f5ff');
-      ctx.fillStyle = skyGradient;
-      ctx.fillRect(0, 0, width, height);
+      ctx.clearRect(0, 0, width, height);
 
-      // Sun
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(width * 0.85, height * 0.18, 55, 0, Math.PI * 2);
-      ctx.fillStyle = '#fff7d6';
-      ctx.shadowColor = 'rgba(255, 235, 150, 0.8)';
-      ctx.shadowBlur = 50;
-      ctx.fill();
-      ctx.restore();
-
-      // Animated Clouds
-      clouds.forEach(c => {
-        c.x += c.speed;
-        if (c.x - c.size * 2 > width) c.x = -c.size * 2;
-
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
-        ctx.beginPath();
-        ctx.arc(c.x, c.y, c.size, 0, Math.PI * 2);
-        ctx.arc(c.x + c.size * 0.7, c.y - c.size * 0.3, c.size * 0.8, 0, Math.PI * 2);
-        ctx.arc(c.x + c.size * 1.4, c.y, c.size * 0.7, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      // Fairytale Green Hill Background
-      ctx.fillStyle = '#9bd871';
-      ctx.beginPath();
-      ctx.moveTo(0, height);
-      ctx.quadraticCurveTo(width * 0.5, height - 170, width, height);
-      ctx.lineTo(width, height);
-      ctx.fill();
-
-      // Foreground Vibrant Meadow
-      ctx.fillStyle = '#7ac953';
-      ctx.beginPath();
-      ctx.moveTo(0, height);
-      ctx.quadraticCurveTo(width * 0.4, height - 120, width, height);
-      ctx.lineTo(width, height);
-      ctx.fill();
-
-      // Flowers on the Hill
-      for(let i = 0; i < width; i += 60) {
-        ctx.fillStyle = i % 120 === 0 ? '#ff6b81' : '#ffd700';
-        ctx.beginPath();
-        ctx.arc(i + 20, height - 20 - Math.sin(i)*15, 5, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      // Floating Flower Petals in Air
+      // Floating Petals
       petals.forEach(p => {
         p.y += p.speedY;
         p.x += p.speedX;
@@ -375,136 +478,12 @@
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate(p.angle);
-        ctx.fillStyle = '#ff9ebb';
+        ctx.fillStyle = 'rgba(255, 182, 193, 0.85)';
         ctx.beginPath();
         ctx.ellipse(0, 0, p.size, p.size / 2, 0, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       });
-
-      // 🎨 CLEAR & HIGH-CONTRAST 2D ANIME COUPLE
-      drawDaytimeAnimeProposal();
-    }
-
-    function drawDaytimeAnimeProposal() {
-      const cx = width * 0.5;
-      const cy = height - 40;
-
-      ctx.save();
-
-      // --- GIRL (Right Side, Standing, Shockingly Happy) ---
-      const gx = cx + 50;
-      const gy = cy - 25;
-
-      // Bright Pink Flowy Dress
-      ctx.fillStyle = '#ff3366';
-      ctx.shadowColor = 'rgba(255, 51, 102, 0.3)';
-      ctx.shadowBlur = 10;
-      ctx.beginPath();
-      ctx.moveTo(gx - 8, gy - 55);
-      ctx.quadraticCurveTo(gx - 35, gy + 10, gx - 40, gy + 35);
-      ctx.lineTo(gx + 30, gy + 35);
-      ctx.quadraticCurveTo(gx + 20, gy + 10, gx + 8, gy - 55);
-      ctx.fill();
-
-      // Girl Face & Body
-      ctx.fillStyle = '#ffdfd3';
-      ctx.shadowBlur = 0;
-      ctx.beginPath();
-      ctx.arc(gx, gy - 78, 14, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Girl Anime Hair (Dark Brown)
-      ctx.fillStyle = '#4a2511';
-      ctx.beginPath();
-      ctx.arc(gx, gy - 80, 17, Math.PI * 0.8, Math.PI * 2.2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.moveTo(gx - 14, gy - 80);
-      ctx.quadraticCurveTo(gx - 28, gy - 20, gx - 18, gy + 20);
-      ctx.quadraticCurveTo(gx - 5, gy - 30, gx - 10, gy - 75);
-      ctx.fill();
-
-      // Hands to Face (Shockingly Happy Expression)
-      ctx.strokeStyle = '#ffdfd3';
-      ctx.lineWidth = 4;
-      ctx.lineCap = 'round';
-      ctx.beginPath();
-      ctx.moveTo(gx - 6, gy - 55);
-      ctx.lineTo(gx - 3, gy - 72);
-      ctx.moveTo(gx + 6, gy - 55);
-      ctx.lineTo(gx + 3, gy - 72);
-      ctx.stroke();
-
-      // Blushing Cheeks
-      ctx.fillStyle = '#ff1493';
-      ctx.beginPath();
-      ctx.arc(gx - 5, gy - 75, 3.5, 0, Math.PI * 2);
-      ctx.arc(gx + 5, gy - 75, 3.5, 0, Math.PI * 2);
-      ctx.fill();
-
-      // --- BOY (Left Side, Kneeling with Ring) ---
-      const bx = cx - 45;
-      const by = cy;
-
-      // Dark Navy Blue Suit (Super Clear Contrast against Green Hill)
-      ctx.fillStyle = '#1e272e';
-
-      // Kneeling Legs
-      ctx.beginPath();
-      ctx.moveTo(bx - 15, by - 25);
-      ctx.lineTo(bx - 42, by + 25);
-      ctx.lineTo(bx - 10, by + 25);
-      ctx.fill();
-
-      ctx.beginPath();
-      ctx.moveTo(bx - 5, by - 25);
-      ctx.lineTo(bx + 20, by);
-      ctx.lineTo(bx + 18, by + 25);
-      ctx.lineTo(bx + 5, by + 25);
-      ctx.fill();
-
-      // Torso
-      ctx.beginPath();
-      ctx.moveTo(bx - 20, by - 25);
-      ctx.lineTo(bx - 12, by - 70);
-      ctx.lineTo(bx + 6, by - 70);
-      ctx.lineTo(bx, by - 25);
-      ctx.fill();
-
-      // Face
-      ctx.fillStyle = '#ffdfd3';
-      ctx.beginPath();
-      ctx.arc(bx - 2, by - 82, 13, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Anime Spiky Hair (Golden Hair)
-      ctx.fillStyle = '#d4a373';
-      ctx.beginPath();
-      ctx.arc(bx - 2, by - 85, 15, Math.PI, Math.PI * 2);
-      ctx.fill();
-
-      // Arm Extended Offering Ring
-      ctx.strokeStyle = '#ffdfd3';
-      ctx.lineWidth = 5;
-      ctx.beginPath();
-      ctx.moveTo(bx - 3, by - 58);
-      ctx.lineTo(bx + 32, by - 55);
-      ctx.stroke();
-
-      // 💍 SHINY DIAMOND RING BOX
-      ctx.fillStyle = '#d63031';
-      ctx.fillRect(bx + 30, by - 62, 12, 12);
-
-      // Diamond Sparkle
-      ctx.fillStyle = '#ffffff';
-      ctx.shadowColor = '#ffd700';
-      ctx.shadowBlur = 15;
-      ctx.beginPath();
-      ctx.arc(bx + 36, by - 65, 5, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.restore();
     }
 
     // Fireworks Particles
@@ -574,9 +553,9 @@
     function createFirework() {
       const x = Math.random() * (width * 0.8) + width * 0.1;
       const y = Math.random() * (height * 0.45) + height * 0.1;
-      const colors = ['#ff416c', '#ffd700', '#ff007f', '#001219', '#ffffff', '#ff6b81'];
+      const colors = ['#ff416c', '#ffd700', '#ff007f', '#ffffff', '#ff6b81'];
       const color = colors[Math.floor(Math.random() * colors.length)];
-      for (let i = 0; i < 75; i++) {
+      for (let i = 0; i < 70; i++) {
         fireworks.push(new Particle(x, y, color));
       }
     }
@@ -604,8 +583,9 @@
     }
 
     function goToStep2() {
-      // Play Music on first user interaction
-      bgMusic.play().catch(() => {});
+      // Auto-start inbuilt piano music on first button click
+      startRomanticMusic();
+
       const step1 = document.getElementById('step1');
       const step2 = document.getElementById('step2');
 
