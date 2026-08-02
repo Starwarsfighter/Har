@@ -73,15 +73,15 @@
       100% { opacity: 1; transform: scale(1.15); }
     }
 
-    /* 🌟 Disney Fairytale Image Scene */
+    /* 🌟 Disney Fairytale Custom Handcrafted SVG Scene */
     .anime-scene {
       position: absolute;
-      bottom: 0px;
+      bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
       width: 100%;
-      max-width: 550px;
+      max-width: 650px;
       display: flex;
       justify-content: center;
       align-items: flex-end;
@@ -93,13 +93,11 @@
       opacity: 0;
     }
 
-    .disney-img {
+    .anime-svg {
       width: 100%;
       height: auto;
-      max-height: 52vh;
-      object-fit: contain;
-      filter: drop-shadow(0 15px 30px rgba(255, 105, 180, 0.7));
-      border-radius: 20px;
+      max-height: 60vh;
+      filter: drop-shadow(0 15px 35px rgba(255, 105, 180, 0.7));
     }
 
     /* UI Layer */
@@ -219,7 +217,7 @@
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       z-index: 40;
-      background: rgba(15, 8, 22, 0.94);
+      background: rgba(15, 8, 22, 0.95);
       backdrop-filter: blur(12px);
       display: flex;
       flex-direction: column;
@@ -302,9 +300,128 @@
   <div class="intense-glow" id="intenseGlow"></div>
   <canvas id="canvas"></canvas>
 
-  <!-- 🌟 Disney Princess Style Proposal Image -->
+  <!-- 🌟 Handcrafted Custom Disney Princess Style Scene -->
   <div class="anime-scene" id="animeScene">
-    <img class="disney-img" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=800&auto=format&fit=crop" alt="Disney Proposal Vibe">
+    <svg class="anime-svg" viewBox="0 0 700 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Magical Backlight Glow -->
+      <circle cx="350" cy="350" r="180" fill="url(#magicalAura)" opacity="0.8"/>
+
+      <!-- ================= BOY (Flynn Rider / Disney Prince Vibe - Handcrafted) ================= -->
+      <g id="disney-boy">
+        <!-- Kneeling Body & Outfit -->
+        <path d="M 210 380 L 160 480 L 230 480 L 250 410 Z" fill="#1b2631"/>
+        <path d="M 245 370 L 310 420 L 290 470 L 225 430 Z" fill="#2c3e50"/>
+        <ellipse cx="150" cy="480" rx="18" ry="10" fill="#0d1117"/>
+        <ellipse cx="300" cy="475" rx="20" ry="10" fill="#0d1117"/>
+        
+        <!-- Blue Royal Tunic & Belt -->
+        <path d="M 190 280 L 270 270 C 275 330 260 390 245 400 L 180 390 Z" fill="#2980b9"/>
+        <path d="M 185 370 L 255 375 L 250 395 L 180 390 Z" fill="#7d3c98"/>
+        <rect x="210" y="368" width="14" height="22" rx="3" fill="#f1c40f"/>
+
+        <!-- Extended Arm Offering Ring -->
+        <path d="M 245 295 Q 295 315 335 305" stroke="#2980b9" stroke-width="15" stroke-linecap="round"/>
+        <circle cx="340" cy="303" r="7" fill="#f5b041"/>
+
+        <!-- Prince Head & Smooth Jawline -->
+        <path d="M 200 185 C 230 175 260 185 252 225 C 245 248 225 255 210 250 C 195 242 192 205 200 185 Z" fill="#f5b041"/>
+        
+        <!-- Gorgeous Disney Prince Hair (Swooping waves) -->
+        <path d="M 195 195 C 180 160 220 135 258 165 C 268 175 262 205 252 210 C 245 175 215 155 195 195 Z" fill="#2c1d0c"/>
+        <path d="M 200 162 Q 225 142 242 178 Q 218 158 200 162" fill="#1a1107"/>
+
+        <!-- Expressive Eyes & Smirk -->
+        <path d="M 223 192 Q 232 187 242 197" stroke="#1a1107" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="235" cy="205" rx="4.5" ry="6.5" fill="#ffffff"/>
+        <ellipse cx="237" cy="205" rx="2.5" ry="4" fill="#6c3483"/>
+        <circle cx="238" cy="203" r="1.5" fill="#ffffff"/>
+        
+        <ellipse cx="212" cy="205" rx="3.5" ry="5.5" fill="#ffffff"/>
+        <circle cx="213" cy="205" r="2" fill="#6c3483"/>
+
+        <!-- Confident Loving Smirk -->
+        <path d="M 216 225 Q 225 230 234 222" stroke="#1a1107" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </g>
+
+      <!-- ================= 💍 MAGICAL RING & BOX (Front & Center) ================= -->
+      <g id="disney-ring-box">
+        <rect x="330" y="285" width="26" height="22" rx="4" fill="#c0392b"/>
+        <rect x="332" y="282" width="22" height="5" rx="2" fill="#e74c3c"/>
+        <path d="M 343 282 L 343 268" stroke="#f1c40f" stroke-width="2.5"/>
+        <polygon points="343,256 350,266 336,266" fill="#ffffff"/>
+        <!-- Radiant Diamond Glow -->
+        <circle cx="343" cy="261" r="20" fill="url(#diamondGlow)"/>
+        <path d="M 343 240 L 343 282 M 322 261 L 364 261 M 328 246 L 358 276 M 328 276 L 358 246" stroke="#ffffff" stroke-width="1.8" opacity="0.95"/>
+      </g>
+
+      <!-- ================= GIRL (Rapunzel / Anna Disney Princess Vibe - Handcrafted) ================= -->
+      <g id="disney-girl">
+        <!-- Stunning Flowing Ballgown -->
+        <path d="M 440 225 Q 350 305 310 480 L 560 480 Q 515 305 450 225 Z" fill="#e91e63"/>
+        <path d="M 445 225 Q 375 345 345 480 L 530 480 Q 485 345 455 225 Z" fill="#ff4081" opacity="0.8"/>
+        <!-- Dress Sparkles -->
+        <circle cx="380" cy="390" r="4" fill="#ffffff"/>
+        <circle cx="480" cy="420" r="5" fill="#ffffff"/>
+        <circle cx="430" cy="360" r="3.5" fill="#ffffff"/>
+
+        <!-- Corset & Puffed Sleeves -->
+        <path d="M 425 190 Q 450 200 460 190 L 455 235 L 430 235 Z" fill="#c2185b"/>
+        <circle cx="420" cy="197" r="10" fill="#ff80ab"/>
+        <circle cx="465" cy="197" r="10" fill="#ff80ab"/>
+
+        <!-- Hands to Chest in Shocked Joy (Disney Gasp) -->
+        <path d="M 430 200 Q 400 230 420 175" stroke="#f5b041" stroke-width="10" stroke-linecap="round" fill="none"/>
+        <path d="M 460 200 Q 480 230 445 175" stroke="#f5b041" stroke-width="10" stroke-linecap="round" fill="none"/>
+        <circle cx="420" cy="170" r="7" fill="#f5b041"/>
+        <circle cx="445" cy="170" r="7" fill="#f5b041"/>
+
+        <!-- Princess Head & Heart Face Shape -->
+        <path d="M 430 170 Q 440 190 445 170 L 445 150 L 430 150 Z" fill="#f5b041"/>
+        <path d="M 405 125 C 465 110 480 150 460 180 C 450 195 415 195 405 175 C 390 145 400 125 405 125 Z" fill="#f5b041"/>
+        
+        <!-- HUGE Expressive Disney Princess Eyes (Green/Emerald, sparkly) -->
+        <!-- Left Eye -->
+        <path d="M 410 145 C 410 130 426 130 426 145 C 426 155 410 155 410 145 Z" fill="#ffffff"/>
+        <ellipse cx="418" cy="143" rx="4.5" ry="6.5" fill="#229954"/>
+        <ellipse cx="418" cy="143" rx="2.5" ry="4" fill="#000000"/>
+        <circle cx="416" cy="139" r="2" fill="#ffffff"/>
+        <path d="M 407 140 Q 418 125 429 140" stroke="#1a1107" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+        <!-- Right Eye -->
+        <path d="M 435 145 C 435 130 451 130 451 145 C 451 155 435 155 435 145 Z" fill="#ffffff"/>
+        <ellipse cx="443" cy="143" rx="4.5" ry="6.5" fill="#229954"/>
+        <ellipse cx="443" cy="143" rx="2.5" ry="4" fill="#000000"/>
+        <circle cx="441" cy="139" r="2" fill="#ffffff"/>
+        <path d="M 432 140 Q 443 125 454 140" stroke="#1a1107" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+        <!-- Tiny Nose & Big Happy Gasp Mouth -->
+        <path d="M 428 153 Q 431 156 434 153" stroke="#d35400" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M 421 163 Q 431 175 441 163 Z" fill="#900c3f"/>
+        <path d="M 424 163 Q 431 168 438 163 Z" fill="#ffffff"/>
+
+        <!-- Rosy Cheeks -->
+        <ellipse cx="407" cy="155" rx="5.5" ry="3" fill="#ff4081" opacity="0.8"/>
+        <ellipse cx="454" cy="155" rx="5.5" ry="3" fill="#ff4081" opacity="0.8"/>
+
+        <!-- Gorgeous Flowing Blonde Hair Waves -->
+        <path d="M 435 90 C 365 90 360 160 355 280 Q 385 240 415 170" fill="#f1c40f"/>
+        <path d="M 435 90 C 505 90 510 160 515 280 Q 485 240 455 170" fill="#f1c40f"/>
+        <path d="M 435 95 C 400 95 390 130 400 140 C 410 120 430 115 440 125 C 455 115 470 125 480 140 C 490 120 470 95 435 95 Z" fill="#d4ac0d"/>
+      </g>
+
+      <defs>
+        <radialGradient id="magicalAura" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+          <stop offset="35%" stop-color="#ffb8d1" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#ff9ff3" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="diamondGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="30%" stop-color="#a8ebe6"/>
+          <stop offset="100%" stop-color="#00cec9" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+    </svg>
   </div>
 
   <div class="ui-layer">
