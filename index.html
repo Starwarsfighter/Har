@@ -18,7 +18,7 @@
       height: 100%;
       overflow: hidden;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #090a0f 0%, #1c1326 100%); /* Starry night vibe */
+      background: linear-gradient(135deg, #090a0f 0%, #1c1326 100%);
       color: #333;
     }
 
@@ -31,7 +31,7 @@
       z-index: 1;
     }
 
-    /* 🌟 Intense Flash & Glow on "Yes" */
+    /* 🌟 Blinding Magic Flash on "Yes" */
     .magic-flash {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -48,7 +48,7 @@
 
     @keyframes blindingFlash {
       0% { opacity: 0; }
-      10% { opacity: 1; }
+      15% { opacity: 1; }
       100% { opacity: 0; }
     }
 
@@ -73,25 +73,30 @@
       100% { opacity: 1; transform: scale(1.15); }
     }
 
-    /* 🌟 Disney Fairytale Scene (Tangled/Frozen Vibe) */
+    /* 🌟 Disney Fairytale Scene */
     .anime-scene {
       position: absolute;
-      bottom: -20px;
+      bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
       width: 100%;
-      max-width: 600px;
+      max-width: 620px;
       display: flex;
       justify-content: center;
       align-items: flex-end;
       pointer-events: none;
+      transition: opacity 1.5s ease;
+    }
+
+    .anime-scene.fade-out {
+      opacity: 0;
     }
 
     .anime-svg {
       width: 100%;
       height: auto;
-      max-height: 65vh;
+      max-height: 62vh;
       filter: drop-shadow(0 15px 30px rgba(255, 105, 180, 0.6));
     }
 
@@ -183,11 +188,11 @@
 
     .love-message-overlay {
       position: absolute;
-      top: 15%;
+      top: 22%;
       z-index: 30;
       text-align: center;
       width: 90%;
-      max-width: 700px;
+      max-width: 750px;
       opacity: 0;
       transform: scale(0.5);
       transition: all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.4);
@@ -201,10 +206,51 @@
 
     .love-message-overlay h2 {
       font-family: 'Dancing Script', cursive;
-      font-size: 3.8rem;
+      font-size: 3.5rem;
       color: #ff1493;
       text-shadow: 0 0 15px #ffffff, 0 0 30px #ffb6c1, 0 0 50px #ff477e, 0 0 80px #ff0055;
       line-height: 1.3;
+    }
+
+    /* 🌟 Final Screen After Sparkling */
+    .final-screen {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 40;
+      background: rgba(15, 8, 22, 0.92);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 2s ease;
+    }
+
+    .final-screen.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .final-text {
+      font-family: 'Cinzel', serif;
+      font-size: 2.6rem;
+      color: #ff3366;
+      letter-spacing: 2px;
+      text-align: center;
+      padding: 0 20px;
+      text-shadow: 0 0 25px rgba(255, 105, 180, 0.9);
+      animation: pulseText 3s infinite alternate;
+      line-height: 1.4;
+    }
+
+    .sub-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: #ff7675;
+      margin-top: 20px;
+      text-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
     }
 
     @keyframes bouncePulse {
@@ -220,6 +266,11 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseText {
+      from { transform: scale(0.97); opacity: 0.85; }
+      to { transform: scale(1.03); opacity: 1; }
     }
 
     .music-btn {
@@ -249,142 +300,115 @@
   <div class="intense-glow" id="intenseGlow"></div>
   <canvas id="canvas"></canvas>
 
-  <div class="anime-scene">
+  <div class="anime-scene" id="animeScene">
     <svg class="anime-svg" viewBox="0 0 650 550" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Magical Backlight -->
       <circle cx="325" cy="380" r="200" fill="url(#magicalAura)" opacity="0.6"/>
 
-      <!-- ================= BOY (Modern Disney Prince - Flynn Rider / Kristoff Vibe) ================= -->
+      <!-- ================= BOY (Refined Disney Prince Vibe) ================= -->
       <g id="boy-character">
-        <!-- Kneeling Body Dynamics -->
-        <!-- Back leg (kneeling) -->
-        <path d="M 190 410 L 140 500 L 210 500 L 230 430 Z" fill="#1c2833"/>
-        <!-- Front leg -->
-        <path d="M 230 400 L 290 450 L 270 500 L 210 500 Z" fill="#2c3e50"/>
-        <!-- Boots -->
-        <ellipse cx="130" cy="500" rx="20" ry="12" fill="#0b0e11"/>
-        <ellipse cx="280" cy="500" rx="22" ry="12" fill="#0b0e11"/>
+        <!-- Kneeling Legs & Boots -->
+        <path d="M 190 410 L 140 500 L 210 500 L 230 430 Z" fill="#151b22"/>
+        <path d="M 230 400 L 290 450 L 270 500 L 210 500 Z" fill="#1f2c38"/>
+        <ellipse cx="130" cy="500" rx="20" ry="12" fill="#05070a"/>
+        <ellipse cx="280" cy="500" rx="22" ry="12" fill="#05070a"/>
 
-        <!-- Tunic/Jacket with confident posture -->
-        <path d="M 170 300 L 250 290 C 255 350 240 410 230 420 L 160 410 Z" fill="#2980b9"/>
-        <!-- Sash & Belt -->
-        <path d="M 165 390 L 235 395 L 230 415 L 160 410 Z" fill="#8e44ad"/>
+        <!-- Tunic/Jacket -->
+        <path d="M 170 300 L 250 290 C 255 350 240 410 230 420 L 160 410 Z" fill="#2471a3"/>
+        <path d="M 165 390 L 235 395 L 230 415 L 160 410 Z" fill="#6c3483"/>
         <rect x="190" y="388" width="15" height="25" rx="3" fill="#f1c40f"/>
 
-        <!-- Extended Arm with dynamic angle -->
-        <path d="M 230 310 Q 280 340 330 330" stroke="#2980b9" stroke-width="18" stroke-linecap="round"/>
-        <!-- Hand holding ring -->
-        <circle cx="335" cy="328" r="9" fill="#fbc5a2"/> 
+        <!-- Extended Arm holding Ring forward clearly -->
+        <path d="M 230 310 Q 280 325 320 315" stroke="#2471a3" stroke-width="16" stroke-linecap="round"/>
+        <circle cx="325" cy="313" r="8" fill="#f5b041"/> 
 
-        <!-- Modern Disney Prince Face & Neck (Lean jawline) -->
-        <path d="M 190 280 L 215 255 L 215 240 L 190 240 Z" fill="#fbc5a2"/> 
-        <!-- Head Shape -->
-        <path d="M 180 200 C 210 190 245 200 235 245 C 230 265 210 275 190 270 C 170 260 170 220 180 200 Z" fill="#fbc5a2"/>
+        <!-- Prince Head & Smooth Face -->
+        <path d="M 180 200 C 210 190 240 200 232 240 C 225 265 205 270 190 265 C 175 255 172 220 180 200 Z" fill="#f5b041"/>
         
-        <!-- Hair (Swooping, messy but stylish Flynn Rider hair) -->
-        <path d="M 170 215 C 160 180 200 150 240 180 C 250 190 245 220 235 225 C 230 190 200 170 170 215 Z" fill="#3a1e05"/>
-        <path d="M 180 180 Q 210 160 225 195 Q 200 175 180 180" fill="#2c1703"/>
+        <!-- Elegant Disney Prince Hair (Flynn Rider / Charming style) -->
+        <path d="M 175 210 C 160 175 200 145 238 175 C 248 185 242 215 232 220 C 225 185 195 165 175 210 Z" fill="#2c1d0c"/>
+        <path d="M 180 175 Q 205 155 222 190 Q 198 170 180 175" fill="#1a1107"/>
 
-        <!-- Expressions: Flynn Smirk & Soft Eyes -->
-        <!-- Eyebrows (One raised) -->
-        <path d="M 205 210 Q 215 205 225 215" stroke="#2c1703" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <path d="M 185 215 Q 190 212 195 215" stroke="#2c1703" stroke-width="3" stroke-linecap="round" fill="none"/>
-        
-        <!-- Eyes (Expressive) -->
-        <ellipse cx="218" cy="225" rx="6" ry="8" fill="#ffffff"/> 
-        <ellipse cx="220" cy="225" rx="3.5" ry="5.5" fill="#8e44ad"/> 
-        <circle cx="221" cy="223" r="2" fill="#ffffff"/> 
+        <!-- Expressive Soft Eyes & Smirk -->
+        <path d="M 203 205 Q 212 200 222 210" stroke="#1a1107" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="215" cy="218" rx="5" ry="7" fill="#ffffff"/> 
+        <ellipse cx="217" cy="218" rx="2.5" ry="4.5" fill="#7d3c98"/> 
+        <circle cx="218" cy="216" r="1.5" fill="#ffffff"/> 
 
-        <ellipse cx="192" cy="225" rx="4" ry="6" fill="#ffffff"/> 
-        <circle cx="193" cy="225" r="2.5" fill="#8e44ad"/> 
+        <ellipse cx="192" cy="218" rx="3.5" ry="5.5" fill="#ffffff"/> 
+        <circle cx="193" cy="218" r="2" fill="#7d3c98"/> 
 
-        <!-- Nose & Confident Loving Smirk -->
-        <path d="M 208 235 Q 212 240 205 242" stroke="#d35400" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-        <path d="M 198 250 Q 210 255 220 245" stroke="#3a1e05" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <path d="M 215 245 Q 218 248 220 245" stroke="#3a1e05" stroke-width="1.5" fill="none"/>
+        <path d="M 196 238 Q 205 243 214 235" stroke="#1a1107" stroke-width="2" stroke-linecap="round" fill="none"/>
       </g>
 
-      <!-- ================= 💍 MAGICAL RING BOX ================= -->
+      <!-- ================= 💍 FULLY VISIBLE RING & BOX (Front & Center) ================= -->
       <g id="ring-detail">
-        <rect x="335" y="315" width="24" height="20" rx="4" fill="#c0392b"/> 
-        <rect x="337" y="312" width="20" height="5" rx="2" fill="#e74c3c"/>
-        <path d="M 347 312 L 347 300" stroke="#f1c40f" stroke-width="2.5"/>
-        <polygon points="347,290 353,298 341,298" fill="#ffffff"/> 
+        <rect x="320" y="300" width="28" height="24" rx="5" fill="#b03a2e"/> 
+        <rect x="322" y="297" width="24" height="6" rx="2" fill="#e74c3c"/>
+        <path d="M 334 297 L 334 282" stroke="#f1c40f" stroke-width="3"/>
+        <polygon points="334,270 342,280 326,280" fill="#ffffff"/> 
         <!-- Diamond Mega Glow -->
-        <circle cx="347" cy="295" r="18" fill="url(#diamondGlow)"/>
-        <path d="M 347 275 L 347 315 M 327 295 L 367 295 M 333 281 L 361 309 M 333 309 L 361 281" stroke="#ffffff" stroke-width="1.5" opacity="0.9"/>
+        <circle cx="334" cy="275" r="22" fill="url(#diamondGlow)"/>
+        <path d="M 334 250 L 334 300 M 309 275 L 359 275 M 317 258 L 351 292 M 317 292 L 351 258" stroke="#ffffff" stroke-width="2" opacity="0.95"/>
       </g>
 
-      <!-- ================= GIRL (Modern Disney Princess - Tangled/Frozen Vibe) ================= -->
+      <!-- ================= GIRL (Refined Disney Princess - Tangled/Frozen Vibe) ================= -->
       <g id="girl-character">
-        <!-- Flowing Dynamic Ballgown (Motion & Curves) -->
-        <path d="M 420 250 Q 320 330 280 500 L 530 500 Q 480 330 430 250 Z" fill="#ff3366"/>
-        <path d="M 425 250 Q 350 370 320 500 L 500 500 Q 450 370 435 250 Z" fill="#ff477e" opacity="0.8"/>
-        <!-- Gown Sparkles -->
-        <circle cx="360" cy="420" r="4" fill="#ffffff"/>
-        <circle cx="460" cy="450" r="5" fill="#ffffff"/>
-        <circle cx="410" cy="390" r="3" fill="#ffffff"/>
+        <!-- Gorgeous Flowing Ballgown -->
+        <path d="M 430 240 Q 340 320 295 500 L 540 500 Q 495 320 440 240 Z" fill="#e91e63"/>
+        <path d="M 435 240 Q 365 360 335 500 L 510 500 Q 465 360 445 240 Z" fill="#ff4081" opacity="0.75"/>
+        <circle cx="370" cy="410" r="4" fill="#ffffff"/>
+        <circle cx="470" cy="440" r="5" fill="#ffffff"/>
+        <circle cx="420" cy="380" r="3.5" fill="#ffffff"/>
 
-        <!-- Corset & Body Language (Leaning forward slightly in shock/joy) -->
-        <path d="M 405 210 Q 430 220 440 210 L 435 255 L 410 255 Z" fill="#d63031"/>
-        
-        <!-- Hands clasped over mouth/chest (Disney gasp expression) -->
-        <!-- Arm Left -->
-        <path d="M 410 220 Q 380 250 400 195" stroke="#ffe0bd" stroke-width="12" stroke-linecap="round" fill="none"/>
-        <!-- Arm Right -->
-        <path d="M 440 220 Q 460 250 425 195" stroke="#ffe0bd" stroke-width="12" stroke-linecap="round" fill="none"/>
-        <!-- Hands -->
-        <circle cx="400" cy="190" r="8" fill="#ffe0bd"/>
-        <circle cx="425" cy="190" r="8" fill="#ffe0bd"/>
+        <!-- Corset & Puffed Shoulders -->
+        <path d="M 415 205 Q 440 215 450 205 L 445 250 L 420 250 Z" fill="#c2185b"/>
+        <circle cx="410" cy="212" r="11" fill="#ff80ab"/>
+        <circle cx="455" cy="212" r="11" fill="#ff80ab"/>
 
-        <!-- Princess Head (Heart Shaped) -->
-        <path d="M 415 190 Q 425 210 430 190 L 430 170 L 415 170 Z" fill="#ffe0bd"/>
-        <path d="M 390 145 C 445 130 460 170 440 200 C 430 215 400 215 390 195 C 375 165 385 145 390 145 Z" fill="#ffe0bd"/>
+        <!-- Hands to Chest in Joyful Gasped Shock -->
+        <path d="M 420 215 Q 390 245 410 190" stroke="#f5b041" stroke-width="11" stroke-linecap="round" fill="none"/>
+        <path d="M 450 215 Q 470 245 435 190" stroke="#f5b041" stroke-width="11" stroke-linecap="round" fill="none"/>
+        <circle cx="410" cy="185" r="7.5" fill="#f5b041"/>
+        <circle cx="435" cy="185" r="7.5" fill="#f5b041"/>
+
+        <!-- Princess Head & Face -->
+        <path d="M 420 185 Q 430 205 435 185 L 435 165 L 420 165 Z" fill="#f5b041"/>
+        <path d="M 395 140 C 455 125 470 165 450 195 C 440 210 405 210 395 190 C 380 160 390 140 395 140 Z" fill="#f5b041"/>
         
-        <!-- ================= DISNEY PRINCESS FACE (The Magic) ================= -->
-        <!-- HUGE Expressive Eyes (Rapunzel/Anna style) -->
+        <!-- Big Expressive Disney Princess Eyes -->
         <!-- Left Eye -->
-        <path d="M 395 165 C 395 150 410 150 410 165 C 410 175 395 175 395 165 Z" fill="#ffffff"/>
-        <ellipse cx="402" cy="163" rx="4.5" ry="6.5" fill="#27ae60"/> <!-- Green Iris -->
-        <ellipse cx="402" cy="163" rx="2.5" ry="4" fill="#000000"/> <!-- Pupil -->
-        <circle cx="400" cy="159" r="2" fill="#ffffff"/> <!-- Main Highlight -->
-        <circle cx="404" cy="165" r="1" fill="#ffffff"/> <!-- Secondary Highlight -->
-        <!-- Eyelashes -->
-        <path d="M 392 160 Q 402 145 413 160" stroke="#2c3e50" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <path d="M 410 155 L 414 150" stroke="#2c3e50" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 400 160 C 400 145 416 145 416 160 C 416 170 400 170 400 160 Z" fill="#ffffff"/>
+        <ellipse cx="408" cy="158" rx="4.5" ry="6.5" fill="#229954"/> 
+        <ellipse cx="408" cy="158" rx="2.5" ry="4" fill="#000000"/> 
+        <circle cx="406" cy="154" r="2" fill="#ffffff"/> 
+        <path d="M 397 155 Q 408 140 419 155" stroke="#1a1107" stroke-width="3" stroke-linecap="round" fill="none"/>
 
         <!-- Right Eye -->
-        <path d="M 420 165 C 420 150 435 150 435 165 C 435 175 420 175 420 165 Z" fill="#ffffff"/>
-        <ellipse cx="427" cy="163" rx="4.5" ry="6.5" fill="#27ae60"/> 
-        <ellipse cx="427" cy="163" rx="2.5" ry="4" fill="#000000"/> 
-        <circle cx="425" cy="159" r="2" fill="#ffffff"/> 
-        <circle cx="429" cy="165" r="1" fill="#ffffff"/> 
-        <path d="M 417 160 Q 427 145 438 160" stroke="#2c3e50" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <path d="M 435 155 L 439 150" stroke="#2c3e50" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 425 160 C 425 145 441 145 441 160 C 441 170 425 170 425 160 Z" fill="#ffffff"/>
+        <ellipse cx="433" cy="158" rx="4.5" ry="6.5" fill="#229954"/> 
+        <ellipse cx="433" cy="158" rx="2.5" ry="4" fill="#000000"/> 
+        <circle cx="431" cy="154" r="2" fill="#ffffff"/> 
+        <path d="M 422 155 Q 433 140 444 155" stroke="#1a1107" stroke-width="3" stroke-linecap="round" fill="none"/>
 
-        <!-- Tiny Cute Nose -->
-        <path d="M 412 173 Q 415 176 418 173" stroke="#e67e22" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-        
-        <!-- Big Joyful Open Mouth (Gasping in Happiness) -->
-        <path d="M 405 182 Q 415 195 425 182 Z" fill="#c0392b"/> 
-        <path d="M 408 182 Q 415 186 422 182 Z" fill="#ffffff"/> <!-- Teeth -->
-        <path d="M 410 188 Q 415 192 420 188 Z" fill="#ff7675"/> <!-- Tongue -->
+        <!-- Tiny Cute Nose & Open Shocked-Happy Smile -->
+        <path d="M 418 168 Q 421 171 424 168" stroke="#d35400" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <path d="M 411 178 Q 421 190 431 178 Z" fill="#900c3f"/> 
+        <path d="M 414 178 Q 421 183 428 178 Z" fill="#ffffff"/> 
 
-        <!-- Blush / Rosy Cheeks -->
-        <ellipse cx="392" cy="175" rx="6" ry="4" fill="#ff477e" opacity="0.7"/>
-        <ellipse cx="438" cy="175" rx="6" ry="4" fill="#ff477e" opacity="0.7"/>
+        <!-- Rosy Cheeks -->
+        <ellipse cx="397" cy="170" rx="6" ry="3.5" fill="#ff4081" opacity="0.75"/>
+        <ellipse cx="444" cy="170" rx="6" ry="3.5" fill="#ff4081" opacity="0.75"/>
 
-        <!-- Flowing Dynamic Hair (Elsa/Rapunzel style volume) -->
-        <path d="M 415 110 C 350 110 345 180 340 300 Q 370 260 395 190" fill="#f1c40f"/> <!-- Blonde/Gold base -->
-        <path d="M 415 110 C 480 110 485 180 490 300 Q 460 260 435 190" fill="#f1c40f"/>
-        <!-- Bangs/Fringe sweeping across -->
-        <path d="M 415 115 C 380 115 370 150 380 160 C 390 140 410 135 420 145 C 435 135 450 145 460 160 C 470 140 450 115 415 115 Z" fill="#f39c12"/>
+        <!-- Stunning Princess Hair Waves (Golden/Blonde Rapunzel style) -->
+        <path d="M 425 105 C 355 105 350 175 345 295 Q 375 255 405 185" fill="#f1c40f"/> 
+        <path d="M 425 105 C 495 105 500 175 505 295 Q 475 255 445 185" fill="#f1c40f"/>
+        <path d="M 425 110 C 390 110 380 145 390 155 C 400 135 420 130 430 140 C 445 130 460 140 470 155 C 480 135 460 110 425 110 Z" fill="#d4ac0d"/>
       </g>
 
       <defs>
         <radialGradient id="magicalAura" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
-          <stop offset="30%" stop-color="#ffb8d1" stop-opacity="0.4"/>
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+          <stop offset="35%" stop-color="#ffb8d1" stop-opacity="0.5"/>
           <stop offset="100%" stop-color="#ff9ff3" stop-opacity="0"/>
         </radialGradient>
         <radialGradient id="diamondGlow" cx="50%" cy="50%" r="50%">
@@ -425,6 +449,12 @@
     </div>
   </div>
 
+  <!-- 🌟 Final Screen With Your Custom Message -->
+  <div class="final-screen" id="finalScreen">
+    <div class="final-text">You said yes, then now forever begins from today. ❤️</div>
+    <div class="sub-text">Forever Yours, Gora</div>
+  </div>
+
   <script>
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
@@ -446,7 +476,6 @@
       }
     }
 
-    // Gentle background petals (Default scene)
     const petals = Array.from({ length: 40 }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
@@ -462,7 +491,7 @@
     let isCelebrating = false;
 
     function drawDefaultScene() {
-      if(isCelebrating) return; // Hide standard petals during extreme celebration
+      if(isCelebrating) return;
       ctx.clearRect(0, 0, width, height);
       petals.forEach(p => {
         p.y += p.speedY;
@@ -482,18 +511,16 @@
       });
     }
 
-    // === MASSIVE EXPLOSION PARTICLES ===
-
     class Sparkle {
       constructor(x, y) {
         this.x = x;
         this.y = y;
         this.angle = Math.random() * Math.PI * 2;
-        this.speed = Math.random() * 15 + 5; // Very fast
+        this.speed = Math.random() * 15 + 5;
         this.friction = 0.92;
         this.size = Math.random() * 4 + 2;
         this.alpha = 1;
-        this.color = Math.random() > 0.5 ? '#ffffff' : '#f1c40f'; // White & Gold
+        this.color = Math.random() > 0.5 ? '#ffffff' : '#f1c40f';
       }
       update() {
         this.speed *= this.friction;
@@ -506,7 +533,6 @@
         ctx.globalAlpha = this.alpha;
         ctx.fillStyle = this.color;
         ctx.beginPath();
-        // Draw a star/diamond shape
         ctx.moveTo(this.x, this.y - this.size);
         ctx.lineTo(this.x + this.size/2, this.y - this.size/2);
         ctx.lineTo(this.x + this.size, this.y);
@@ -554,14 +580,14 @@
     class HeartParticle {
       constructor() {
         this.x = Math.random() * width;
-        this.y = height + 20; // Start from bottom
+        this.y = height + 20;
         this.size = Math.random() * 25 + 15;
-        this.speedY = Math.random() * 6 + 3; // Fast float up
+        this.speedY = Math.random() * 6 + 3;
         this.opacity = Math.random() * 0.8 + 0.2;
         this.velX = (Math.random() - 0.5) * 3;
       }
       update() {
-        this.y -= this.speedY; // Float up
+        this.y -= this.speedY;
         this.x += this.velX;
       }
       draw() {
@@ -571,113 +597,4 @@
         ctx.shadowBlur = 15;
         ctx.shadowColor = '#ff477e';
         ctx.beginPath();
-        let topCurveHeight = this.size * 0.3;
-        ctx.moveTo(this.x, this.y + topCurveHeight);
-        ctx.bezierCurveTo(this.x, this.y, this.x - this.size / 2, this.y, this.x - this.size / 2, this.y + topCurveHeight);
-        ctx.bezierCurveTo(this.x - this.size / 2, this.y + (this.size + topCurveHeight) / 2, this.x, this.y + this.size, this.x, this.y + this.size);
-        ctx.bezierCurveTo(this.x, this.y + this.size, this.x + this.size / 2, this.y + (this.size + topCurveHeight) / 2, this.x + this.size / 2, this.y + topCurveHeight);
-        ctx.bezierCurveTo(this.x + this.size / 2, this.y, this.x, this.y, this.x, this.y + topCurveHeight);
-        ctx.fill();
-        ctx.restore();
-      }
-    }
-
-    function createMassiveExplosion() {
-      // Create bursts from random spots
-      const x = Math.random() * width;
-      const y = Math.random() * (height * 0.6);
-      const colors = ['#ff416c', '#ffd700', '#00f2fe', '#ffffff', '#ff6b81', '#9b59b6'];
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      
-      // 150 particles per explosion!
-      for (let i = 0; i < 150; i++) {
-        fireworks.push(new Firework(x, y, color));
-      }
-      for (let i = 0; i < 50; i++) {
-        megaSparkles.push(new Sparkle(x, y));
-      }
-    }
-
-    function animate() {
-      if(!isCelebrating) {
-        drawDefaultScene();
-      } else {
-        // Clear with slight trailing effect for celebration
-        ctx.fillStyle = 'rgba(28, 19, 38, 0.2)'; 
-        ctx.fillRect(0, 0, width, height);
-
-        // Constant massive fireworks
-        if (Math.random() < 0.25) createMassiveExplosion();
         
-        fireworks.forEach((p, index) => {
-          p.update();
-          p.draw();
-          if (p.alpha <= 0) fireworks.splice(index, 1);
-        });
-
-        megaSparkles.forEach((s, index) => {
-          s.update();
-          s.draw();
-          if (s.alpha <= 0) megaSparkles.splice(index, 1);
-        });
-
-        // Tons of hearts shooting up
-        if (Math.random() < 0.6) hearts.push(new HeartParticle());
-        if (Math.random() < 0.6) hearts.push(new HeartParticle()); // Double spawn rate
-        
-        hearts.forEach((h, index) => {
-          h.update();
-          h.draw();
-          if (h.y < -50) hearts.splice(index, 1);
-        });
-      }
-      requestAnimationFrame(animate);
-    }
-
-    function goToStep2() {
-      bgMusic.play().catch(() => {});
-      const step1 = document.getElementById('step1');
-      const step2 = document.getElementById('step2');
-
-      step1.style.opacity = '0';
-      setTimeout(() => {
-        step1.style.display = 'none';
-        step2.style.display = 'block';
-        setTimeout(() => {
-          step2.style.opacity = '1';
-        }, 50);
-      }, 600);
-    }
-
-    function startCelebration() {
-      const step2 = document.getElementById('step2');
-      step2.style.opacity = '0';
-      setTimeout(() => step2.style.display = 'none', 500);
-
-      // 1. Blinding Magic Flash!
-      const flash = document.getElementById('magicFlash');
-      flash.classList.add('active');
-
-      // 2. Start intense glowing background
-      const intenseGlow = document.getElementById('intenseGlow');
-      intenseGlow.classList.add('active');
-
-      // 3. Start massive particle engine
-      isCelebrating = true;
-      
-      // Initial huge burst in the center
-      for(let i=0; i<3; i++) {
-        setTimeout(createMassiveExplosion, i * 200);
-      }
-
-      // 4. Show giant love message
-      setTimeout(() => {
-        const loveMessage = document.getElementById('loveMessage');
-        loveMessage.classList.add('show');
-      }, 800);
-    }
-
-    animate();
-  </script>
-</body>
-</html>
