@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Dearest Gora ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: #020208;
+      color: #fff;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* Overlay Layer for UI */
+    .ui-layer {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .card {
+      background: rgba(12, 8, 28, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255, 215, 0, 0.4);
+      padding: 40px 30px;
+      border-radius: 25px;
+      max-width: 90%;
+      width: 520px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(138, 43, 226, 0.5), inset 0 0 15px rgba(255, 215, 0, 0.2);
+      pointer-events: auto;
+      animation: floatCard 4s ease-in-out infinite alternate, fadeIn 1.5s ease-out;
+      transition: all 1s ease;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      color: #ffd700;
+      margin-bottom: 15px;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #f0e6ff;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    .highlight {
+      color: #ff6b81;
+      font-weight: 600;
+    }
+
+    /* Custom Buttons */
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      color: white;
+      border: none;
+      padding: 16px 36px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      outline: none;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px rgba(255, 65, 108, 0.9);
+      background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    }
+
+    .btn-next {
+      background: linear-gradient(135deg, #8a2be2, #4a00e0);
+      box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+    }
+
+    .btn-next:hover {
+      box-shadow: 0 0 35px rgba(138, 43, 226, 0.9);
+    }
+
+    /* Final Screen */
+    .final-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 30;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 3s ease;
+    }
+
+    .final-screen.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .final-text {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      color: #fff;
+      letter-spacing: 3px;
+      text-align: center;
+      padding: 0 20px;
+      text-shadow: 0 0 30px rgba(255, 105, 180, 0.9), 0 0 10px rgba(255, 255, 255, 0.7);
+      animation: pulseText 3s infinite alternate;
+    }
+
+    .sub-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #ffd700;
+      margin-top: 20px;
+      opacity: 0.9;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.9); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes floatCard {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-12px); }
+    }
+
+    @keyframes pulseText {
+      from { transform: scale(0.97); opacity: 0.85; }
+      to { transform: scale(1.03); opacity: 1; }
+    }
+
+    /* Music Control Button */
+    .music-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+    .music-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="music-btn" onclick="toggleMusic()">🎵 Music On/Off</button>
+  <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112189.mp3"></audio>
+
+  <canvas id="canvas"></canvas>
+
+  <div class="ui-layer">
+    <!-- Step 1: Introductory Story -->
+    <div class="card" id="step1">
+      <h1>Hey Gora... ❤️</h1>
+      <p>
+        I know I made a mistake and you are angry with me...<br>
+        But before you say anything, I want to take you to a magical world created just for you.
+      </p>
+      <div class="btn-container">
+        <button class="btn btn-next" onclick="goToStep2()">Step Inside ✨</button>
+      </div>
+    </div>
+
+    <!-- Step 2: The Main Proposal -->
+    <div class="card" id="step2" style="display: none; opacity: 0;">
+      <h1>My Dearest Gora,</h1>
+      <p>
+        "I love you from the deepest core of my heart.<br>
+        You are the most beautiful part of my life, my magic, and my forever." ✨<br><br>
+        <span class="highlight">Will you be mine forever?</span>
+      </p>
+      <div class="btn-container">
+        <button class="btn" onclick="startCelebration()">Yes, I Will! ❤️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final Screen -->
+  <div class="final-screen" id="finalScreen">
+    <div class="final-text">A new journey begins today... ❤️</div>
+    <div class="sub-text">Forever & Always, Gora</div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const bgMusic = document.getElementById('bgMusic');
+
+    let width, height;
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function toggleMusic() {
+      if (bgMusic.paused) {
+        bgMusic.play();
+      } else {
+        bgMusic.pause();
+      }
+    }
+
+    // 🌟 Stars & Celestial Objects
+    const stars = Array.from({ length: 200 }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight * 0.75,
+      radius: Math.random() * 1.6 + 0.4,
+      alpha: Math.random(),
+      speed: Math.random() * 0.02 + 0.005
+    }));
+
+    // 🌟 Shooting Stars
+    let shootingStars = [];
+    function createShootingStar() {
+      if (Math.random() < 0.03) {
+        shootingStars.push({
+          x: Math.random() * width,
+          y: Math.random() * (height * 0.4),
+          length: Math.random() * 80 + 40,
+          speed: Math.random() * 10 + 6,
+          alpha: 1
+        });
+      }
+    }
+
+    // 🌟 Fireflies (जुगनू)
+    const fireflies = Array.from({ length: 35 }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: window.innerHeight - Math.random() * 250,
+      radius: Math.random() * 2 + 1,
+      angle: Math.random() * Math.PI * 2,
+      speed: Math.random() * 0.8 + 0.2,
+      alpha: Math.random()
+    }));
+
+    // 🎆 Fireworks & Heart Rain Arrays
+    let fireworks = [];
+    let hearts = [];
+    let isCelebrating = false;
+
+    // 🌌 Render Night Sky & Fairytale Scene
+    function drawScene() {
+      // Sky Gradient
+      let skyGradient = ctx.createLinearGradient(0, 0, 0, height);
+      skyGradient.addColorStop(0, '#02010a');
+      skyGradient.addColorStop(0.5, '#120826');
+      skyGradient.addColorStop(1, '#2c103f');
+      ctx.fillStyle = skyGradient;
+      ctx.fillRect(0, 0, width, height);
+
+      // Glowing Moon
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(width * 0.82, height * 0.22, 55, 0, Math.PI * 2);
+      ctx.fillStyle = '#fffde8';
+      ctx.shadowColor = 'rgba(255, 253, 232, 0.9)';
+      ctx.shadowBlur = 50;
+      ctx.fill();
+      ctx.restore();
+
+      // Stars
+      stars.forEach(star => {
+        star.alpha += star.speed;
+        if (star.alpha > 1 || star.alpha < 0) star.speed = -star.speed;
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.alpha)})`;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Shooting Stars Animation
+      createShootingStar();
+      shootingStars.forEach((st, idx) => {
+        st.x += st.speed;
+        st.y += st.speed * 0.5;
+        st.alpha -= 0.015;
+
+        ctx.save();
+        ctx.strokeStyle = `rgba(255, 255, 255, ${st.alpha})`;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(st.x, st.y);
+        ctx.lineTo(st.x - st.length, st.y - st.length * 0.5);
+        ctx.stroke();
+        ctx.restore();
+
+        if (st.alpha <= 0) shootingStars.splice(idx, 1);
+      });
+
+      // Fairytale Hills (Foreground)
+      ctx.fillStyle = '#060312';
+      ctx.beginPath();
+      ctx.moveTo(0, height);
+      ctx.quadraticCurveTo(width * 0.5, height - 200, width, height);
+      ctx.lineTo(width, height);
+      ctx.fill();
+
+      // Fireflies
+      fireflies.forEach(f => {
+        f.angle += 0.02;
+        f.x += Math.cos(f.angle) * f.speed;
+        f.y += Math.sin(f.angle) * f.speed;
+
+        ctx.save();
+        ctx.fillStyle = `rgba(255, 215, 0, ${Math.abs(Math.sin(f.angle))})`;
+        ctx.shadowColor = '#ffd700';
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+
+      // Draw Anime Boy Proposing
+      drawAnimeBoySilhouette();
+    }
+
+    // 🕺 2D Anime Boy Kneeling with Ring Silhouette
+    function drawAnimeBoySilhouette() {
+      const cx = width * 0.5;
+      const cy = height - 90;
+
+      ctx.save();
+      ctx.fillStyle = '#030208';
+      ctx.strokeStyle = '#030208';
+
+      // Kneeling Leg
+      ctx.lineWidth = 14;
+      ctx.lineCap = 'round';
+
+      ctx.beginPath();
+      ctx.moveTo(cx - 20, cy - 10);
+      ctx.lineTo(cx - 50, cy + 35);
+      ctx.lineTo(cx - 10, cy + 35);
+      ctx.stroke();
+
+      // Forward Kneeling Leg
+      ctx.beginPath();
+      ctx.moveTo(cx - 10, cy - 10);
+      ctx.lineTo(cx + 20, cy + 15);
+      ctx.lineTo(cx + 20, cy + 35);
+      ctx.stroke();
+
+      // Body Body
+      ctx.beginPath();
+      ctx.moveTo(cx - 20, cy - 10);
+      ctx.lineTo(cx - 15, cy - 65);
+      ctx.lineTo(cx - 2, cy - 65);
+      ctx.lineTo(cx - 5, cy - 10);
+      ctx.fill();
+
+      // Anime Head & Hair
+      ctx.beginPath();
+      ctx.arc(cx - 8, cy - 80, 14, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Spiky Anime Hair
+      ctx.beginPath();
+      ctx.moveTo(cx - 22, cy - 85);
+      ctx.lineTo(cx - 10, cy - 100);
+      ctx.lineTo(cx, cy - 88);
+      ctx.lineTo(cx + 8, cy - 95);
+      ctx.lineTo(cx + 5, cy - 78);
+      ctx.fill();
+
+      // Extended Arm Holding Ring Box
+      ctx.lineWidth = 8;
+      ctx.beginPath();
+      ctx.moveTo(cx - 10, cy - 55);
+      ctx.lineTo(cx + 30, cy - 48);
+      ctx.stroke();
+
+      // Magic Glowing Diamond Ring Box
+      ctx.beginPath();
+      ctx.arc(cx + 33, cy - 48, 5, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = '#ffd700';
+      ctx.shadowBlur = 25;
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    // 🎆 Firework Particle System
+    class Particle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.angle = Math.random() * Math.PI * 2;
+        this.speed = Math.random() * 8 + 2;
+        this.friction = 0.95;
+        this.gravity = 0.12;
+        this.alpha = 1;
+        this.decay = Math.random() * 0.02 + 0.01;
+      }
+
+      update() {
+        this.speed *= this.friction;
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed + this.gravity;
+        this.alpha -= this.decay;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    // 💕 Heart Rain System
+    class Heart {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = -30;
+        this.size = Math.random() * 18 + 12;
+        this.speed = Math.random() * 3 + 2;
+        this.opacity = Math.random() * 0.7 + 0.3;
+        this.velX = (Math.random() - 0.5) * 2;
+      }
+
+      update() {
+        this.y += this.speed;
+        this.x += this.velX;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = '#ff3366';
+        ctx.beginPath();
+        let topCurveHeight = this.size * 0.3;
+        ctx.moveTo(this.x, this.y + topCurveHeight);
+        ctx.bezierCurveTo(this.x, this.y, this.x - this.size / 2, this.y, this.x - this.size / 2, this.y + topCurveHeight);
+        ctx.bezierCurveTo(this.x - this.size / 2, this.y + (this.size + topCurveHeight) / 2, this.x, this.y + this.size, this.x, this.y + this.size);
+        ctx.bezierCurveTo(this.x, this.y + this.size, this.x + this.size / 2, this.y + (this.size + topCurveHeight) / 2, this.x + this.size / 2, this.y + topCurveHeight);
+        ctx.bezierCurveTo(this.x + this.size / 2, this.y, this.x, this.y, this.x, this.y + topCurveHeight);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function createFirework() {
+      const x = Math.random() * (width * 0.8) + width * 0.1;
+      const y = Math.random() * (height * 0.45) + height * 0.1;
+      const colors = ['#ff416c', '#ffd700', '#ff007f', '#00ffff', '#ffffff', '#ff6b81'];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      for (let i = 0; i < 80; i++) {
+        fireworks.push(new Particle(x, y, color));
+      }
+    }
+
+    // Animation Loop
+    function animate() {
+      drawScene();
+
+      if (isCelebrating) {
+        // Fireworks
+        if (Math.random() < 0.12) createFirework();
+        fireworks.forEach((p, index) => {
+          p.update();
+          p.draw();
+          if (p.alpha <= 0) fireworks.splice(index, 1);
+        });
+
+        // Heart Rain
+        if (Math.random() < 0.4) hearts.push(new Heart());
+        hearts.forEach((h, index) => {
+          h.update();
+          h.draw();
+          if (h.y > height) hearts.splice(index, 1);
+        });
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    // Story Steps Controls
+    function goToStep2() {
+      bgMusic.play().catch(() => {}); // Play music after click
+      const step1 = document.getElementById('step1');
+      const step2 = document.getElementById('step2');
+
+      step1.style.opacity = '0';
+      setTimeout(() => {
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+        setTimeout(() => {
+          step2.style.opacity = '1';
+        }, 50);
+      }, 800);
+    }
+
+    function startCelebration() {
+      isCelebrating = true;
+
+      const step2 = document.getElementById('step2');
+      step2.style.opacity = '0';
+
+      // 7 Seconds of Fireworks & Heart Rain before fading out
+      setTimeout(() => {
+        step2.style.display = 'none';
+        const finalScreen = document.getElementById('finalScreen');
+        finalScreen.classList.add('active');
+      }, 7000);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
