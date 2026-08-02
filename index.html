@@ -18,10 +18,11 @@
       height: 100%;
       overflow: hidden;
       font-family: 'Poppins', sans-serif;
-      background: #03010a;
+      background: #020108;
       color: #fff;
     }
 
+    /* Entire Fairytale World rendered in single Canvas */
     #canvas {
       position: absolute;
       top: 0;
@@ -31,30 +32,7 @@
       z-index: 1;
     }
 
-    /* Fairytale 2D Anime Image Scene */
-    .anime-scene-container {
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      width: 100%;
-      max-width: 520px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      pointer-events: none;
-    }
-
-    .anime-img {
-      width: 100%;
-      height: auto;
-      max-height: 58vh;
-      object-fit: contain;
-      filter: drop-shadow(0 0 25px rgba(255, 105, 180, 0.7));
-      animation: floatGentle 4s ease-in-out infinite alternate;
-    }
-
+    /* UI Content Overlay */
     .ui-layer {
       position: relative;
       z-index: 10;
@@ -64,20 +42,22 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 35px;
+      padding-top: 40px;
+      pointer-events: none;
     }
 
     .card {
-      background: rgba(15, 8, 30, 0.85);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(12, 6, 26, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1.5px solid rgba(255, 215, 0, 0.4);
-      padding: 28px 22px;
+      padding: 28px 24px;
       border-radius: 25px;
       max-width: 90%;
       width: 480px;
       text-align: center;
       box-shadow: 0 0 35px rgba(138, 43, 226, 0.6), inset 0 0 15px rgba(255, 215, 0, 0.2);
+      pointer-events: auto;
       animation: fadeIn 1.2s ease-out;
       transition: all 0.8s ease;
     }
@@ -94,7 +74,7 @@
       font-size: 1.05rem;
       line-height: 1.7;
       color: #f0e6ff;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       font-weight: 300;
     }
 
@@ -127,14 +107,14 @@
       box-shadow: 0 0 20px rgba(138, 43, 226, 0.7);
     }
 
-    /* Love Message Overlay */
+    /* Message during Fireworks */
     .love-message-overlay {
       position: absolute;
-      top: 25%;
+      top: 22%;
       z-index: 15;
       text-align: center;
       width: 90%;
-      max-width: 600px;
+      max-width: 650px;
       opacity: 0;
       transform: scale(0.8);
       transition: all 1s ease;
@@ -148,7 +128,7 @@
 
     .love-message-overlay h2 {
       font-family: 'Dancing Script', cursive;
-      font-size: 2.7rem;
+      font-size: 2.8rem;
       color: #ffffff;
       text-shadow: 0 0 20px #ff007f, 0 0 40px #ff416c, 0 0 60px #ffd700;
       line-height: 1.4;
@@ -200,11 +180,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes floatGentle {
-      from { transform: translateY(0px); }
-      to { transform: translateY(-10px); }
-    }
-
     @keyframes pulseText {
       from { transform: scale(0.97); opacity: 0.85; }
       to { transform: scale(1.03); opacity: 1; }
@@ -232,11 +207,6 @@
   <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112189.mp3"></audio>
 
   <canvas id="canvas"></canvas>
-
-  <!-- 2D Anime Proposal Artwork HD -->
-  <div class="anime-scene-container">
-    <img src="https://png.pngtree.com/png-vector/20260210/ourlarge/pngtree-anime-boy-proposing-to-girl-with-ring-romantic-illustration-transparent-background-png-image_18768663.webp" class="anime-img" alt="Anime Proposal Moment">
-  </div>
 
   <div class="ui-layer">
     <!-- Step 1 Card -->
@@ -292,38 +262,49 @@
       }
     }
 
-    // Stars & Fireflies
-    const stars = Array.from({ length: 200 }, () => ({
+    // 🌟 Stars
+    const stars = Array.from({ length: 180 }, () => ({
       x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight * 0.75,
+      y: Math.random() * window.innerHeight * 0.7,
       radius: Math.random() * 1.5 + 0.3,
       alpha: Math.random(),
       speed: Math.random() * 0.02 + 0.005
+    }));
+
+    // 🌟 Fireflies
+    const fireflies = Array.from({ length: 30 }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: window.innerHeight - Math.random() * 200,
+      radius: Math.random() * 2 + 1,
+      angle: Math.random() * Math.PI * 2,
+      speed: Math.random() * 0.6 + 0.2
     }));
 
     let fireworks = [];
     let hearts = [];
     let isCelebrating = false;
 
+    // 🌌 DRAW INBUILT CANVAS SCENE
     function drawScene() {
+      // Fairytale Sky Gradient
       let skyGradient = ctx.createLinearGradient(0, 0, 0, height);
       skyGradient.addColorStop(0, '#020108');
       skyGradient.addColorStop(0.5, '#12072b');
-      skyGradient.addColorStop(1, '#2a0845');
+      skyGradient.addColorStop(1, '#2c0845');
       ctx.fillStyle = skyGradient;
       ctx.fillRect(0, 0, width, height);
 
-      // Moon
+      // Glowing Moon
       ctx.save();
       ctx.beginPath();
-      ctx.arc(width * 0.85, height * 0.2, 50, 0, Math.PI * 2);
+      ctx.arc(width * 0.82, height * 0.2, 45, 0, Math.PI * 2);
       ctx.fillStyle = '#fffde8';
       ctx.shadowColor = 'rgba(255, 253, 232, 0.8)';
       ctx.shadowBlur = 40;
       ctx.fill();
       ctx.restore();
 
-      // Stars
+      // Twinkling Stars
       stars.forEach(star => {
         star.alpha += star.speed;
         if (star.alpha > 1 || star.alpha < 0) star.speed = -star.speed;
@@ -332,9 +313,168 @@
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fill();
       });
+
+      // Fairytale Hill (Background Ground)
+      ctx.fillStyle = '#060312';
+      ctx.beginPath();
+      ctx.moveTo(0, height);
+      ctx.quadraticCurveTo(width * 0.5, height - 160, width, height);
+      ctx.lineTo(width, height);
+      ctx.fill();
+
+      // Fireflies
+      fireflies.forEach(f => {
+        f.angle += 0.02;
+        f.x += Math.cos(f.angle) * f.speed;
+        f.y += Math.sin(f.angle) * f.speed;
+
+        ctx.save();
+        ctx.fillStyle = `rgba(255, 215, 0, ${Math.abs(Math.sin(f.angle))})`;
+        ctx.shadowColor = '#ffd700';
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+
+      // 🎨 DRAW INBUILT ANIME COUPLE PROPOSAL SCENE
+      drawInbuiltAnimeProposal();
     }
 
-    // Fireworks
+    // 🎨 Inbuilt Vector Art (Boy Kneeling + Shockingly Happy Girl)
+    function drawInbuiltAnimeProposal() {
+      const cx = width * 0.5;
+      const cy = height - 50;
+
+      ctx.save();
+
+      // --- GIRL (Standing & Shockingly Happy) ---
+      const gx = cx + 55;
+      const gy = cy - 20;
+
+      // Girl Dress (Flowy Fairytale Gown)
+      ctx.fillStyle = '#ff9ebb';
+      ctx.beginPath();
+      ctx.moveTo(gx - 8, gy - 55);
+      ctx.quadraticCurveTo(gx - 35, gy + 10, gx - 45, gy + 35);
+      ctx.lineTo(gx + 35, gy + 35);
+      ctx.quadraticCurveTo(gx + 25, gy + 10, gx + 8, gy - 55);
+      ctx.fill();
+
+      // Girl Body / Neck
+      ctx.fillStyle = '#fce0d8';
+      ctx.beginPath();
+      ctx.arc(gx, gy - 65, 7, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Girl Head
+      ctx.beginPath();
+      ctx.arc(gx, gy - 78, 14, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Girl Anime Hair (Long & Flowing)
+      ctx.fillStyle = '#3a2042';
+      ctx.beginPath();
+      ctx.arc(gx, gy - 80, 17, Math.PI * 0.8, Math.PI * 2.2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(gx - 15, gy - 80);
+      ctx.quadraticCurveTo(gx - 25, gy - 30, gx - 18, gy + 10);
+      ctx.quadraticCurveTo(gx - 5, gy - 30, gx - 12, gy - 75);
+      ctx.fill();
+
+      // Shockingly Happy Hands (Both hands placed over mouth/face in disbelief)
+      ctx.strokeStyle = '#fce0d8';
+      ctx.lineWidth = 4;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(gx - 6, gy - 55);
+      ctx.lineTo(gx - 4, gy - 72); // Left hand to face
+      ctx.moveTo(gx + 6, gy - 55);
+      ctx.lineTo(gx + 2, gy - 72); // Right hand to face
+      ctx.stroke();
+
+      // Blush / Happy Expression Glow
+      ctx.fillStyle = 'rgba(255, 105, 180, 0.5)';
+      ctx.beginPath();
+      ctx.arc(gx - 4, gy - 76, 3, 0, Math.PI * 2);
+      ctx.arc(gx + 4, gy - 76, 3, 0, Math.PI * 2);
+      ctx.fill();
+
+
+      // --- BOY (Kneeling with Ring) ---
+      const bx = cx - 45;
+      const by = cy;
+
+      // Boy Suit Pants (Kneeling Pose)
+      ctx.fillStyle = '#181a29';
+      ctx.beginPath();
+      // Back leg on ground
+      ctx.moveTo(bx - 15, by - 25);
+      ctx.lineTo(bx - 45, by + 25);
+      ctx.lineTo(bx - 10, by + 25);
+      ctx.fill();
+
+      // Forward Kneeling leg
+      ctx.beginPath();
+      ctx.moveTo(bx - 5, by - 25);
+      ctx.lineTo(bx + 20, by);
+      ctx.lineTo(bx + 18, by + 25);
+      ctx.lineTo(bx + 5, by + 25);
+      ctx.fill();
+
+      // Boy Torso / Coat
+      ctx.beginPath();
+      ctx.moveTo(bx - 20, by - 25);
+      ctx.lineTo(bx - 12, by - 70);
+      ctx.lineTo(bx + 5, by - 70);
+      ctx.lineTo(bx, by - 25);
+      ctx.fill();
+
+      // Boy Head & Spiky Anime Hair
+      ctx.fillStyle = '#fce0d8';
+      ctx.beginPath();
+      ctx.arc(bx - 3, by - 82, 13, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#0d0e17';
+      ctx.beginPath();
+      ctx.arc(bx - 3, by - 85, 15, Math.PI, Math.PI * 2);
+      ctx.fill();
+      // Spikes
+      ctx.beginPath();
+      ctx.moveTo(bx - 18, by - 85);
+      ctx.lineTo(bx - 8, by - 100);
+      ctx.lineTo(bx, by - 90);
+      ctx.lineTo(bx + 8, by - 98);
+      ctx.lineTo(bx + 10, by - 82);
+      ctx.fill();
+
+      // Boy Arm Holding Ring Box out towards Girl
+      ctx.strokeStyle = '#181a29';
+      ctx.lineWidth = 6;
+      ctx.beginPath();
+      ctx.moveTo(bx - 5, by - 60);
+      ctx.lineTo(bx + 35, by - 55);
+      ctx.stroke();
+
+      // Magic Glowing Ring Box
+      ctx.fillStyle = '#ff2a6d';
+      ctx.fillRect(bx + 35, by - 60, 10, 10);
+
+      // Glowing Diamond Ring Effect
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = '#ffd700';
+      ctx.shadowBlur = 20;
+      ctx.beginPath();
+      ctx.arc(bx + 40, by - 62, 4, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    // 🎆 Fireworks Particles
     class Particle {
       constructor(x, y, color) {
         this.x = x;
@@ -343,7 +483,7 @@
         this.angle = Math.random() * Math.PI * 2;
         this.speed = Math.random() * 8 + 2;
         this.friction = 0.95;
-        this.gravity = 0.1;
+        this.gravity = 0.12;
         this.alpha = 1;
         this.decay = Math.random() * 0.02 + 0.01;
       }
@@ -366,7 +506,7 @@
       }
     }
 
-    // Heart Rain
+    // 💕 Heart Rain Particles
     class Heart {
       constructor() {
         this.x = Math.random() * width;
