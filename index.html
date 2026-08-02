@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,6 @@
       color: #333;
     }
 
-    /* Fairytale Background Canvas for Sky & Petals */
     #canvas {
       position: absolute;
       top: 0;
@@ -32,15 +31,15 @@
       z-index: 1;
     }
 
-    /* Beautiful 2D Anime Proposal Vector Art Scene */
+    /* 🌟 High Quality HD 2D Illustration Scene */
     .anime-scene {
       position: absolute;
-      bottom: -10px;
+      bottom: 0;
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
       width: 100%;
-      max-width: 480px;
+      max-width: 520px;
       display: flex;
       justify-content: center;
       align-items: flex-end;
@@ -50,9 +49,8 @@
     .anime-svg {
       width: 100%;
       height: auto;
-      max-height: 52vh;
-      filter: drop-shadow(0 10px 15px rgba(255, 105, 180, 0.4));
-      animation: floatGentle 3.5s ease-in-out infinite alternate;
+      max-height: 56vh;
+      filter: drop-shadow(0 12px 20px rgba(255, 105, 180, 0.45));
     }
 
     /* UI Layer */
@@ -65,7 +63,7 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 30px;
+      padding-top: 35px;
       pointer-events: none;
     }
 
@@ -74,10 +72,10 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 2px solid rgba(255, 182, 193, 0.9);
-      padding: 26px 22px;
+      padding: 28px 24px;
       border-radius: 25px;
       max-width: 90%;
-      width: 460px;
+      width: 480px;
       text-align: center;
       box-shadow: 0 15px 35px rgba(255, 105, 180, 0.35);
       pointer-events: auto;
@@ -93,10 +91,10 @@
     }
 
     p {
-      font-size: 1rem;
-      line-height: 1.65;
+      font-size: 1.05rem;
+      line-height: 1.7;
       color: #4a4a4a;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 400;
     }
 
@@ -118,7 +116,7 @@
       background: linear-gradient(135deg, #ff416c, #ff4b2b);
       color: white;
       border: none;
-      padding: 15px 36px;
+      padding: 16px 38px;
       font-size: 1.2rem;
       font-weight: 600;
       border-radius: 50px;
@@ -210,11 +208,6 @@
       50% { transform: translateY(-8px) scale(1.05); box-shadow: 0 12px 30px rgba(255, 65, 108, 0.7); }
     }
 
-    @keyframes floatGentle {
-      from { transform: translateX(-50%) translateY(0px); }
-      to { transform: translateX(-50%) translateY(-10px); }
-    }
-
     @keyframes blinkText {
       from { opacity: 0.6; }
       to { opacity: 1; }
@@ -235,7 +228,7 @@
       top: 15px;
       right: 15px;
       z-index: 50;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(5px);
       border: 1px solid rgba(255, 105, 180, 0.5);
       color: #ff3366;
@@ -252,96 +245,119 @@
 
   <button class="music-btn" onclick="toggleMusic()">🎵 Music On/Off</button>
 
+  <!-- 🎵 Highly Melodious Romantic Instrumental Track -->
+  <audio id="bgMusic" loop preload="auto" src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3"></audio>
+
   <canvas id="canvas"></canvas>
 
-  <!-- 🌟 High-Quality 2D Anime Proposal Vector Art (Shocked Girl & Kneeling Boy with Ring) -->
+  <!-- 🌟 Detailed Proposal Vector Art (Handsome Boy, Beautiful Girl & Sparkling Diamond Ring) -->
   <div class="anime-scene">
-    <svg class="anime-svg" viewBox="0 0 500 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Glow Aura -->
-      <circle cx="250" cy="380" r="140" fill="url(#glowGradient)" opacity="0.6"/>
-      
-      <!-- GIRL (Right Side, Standing, Shocked & Happy with hands on face) -->
-      <g id="girl">
-        <!-- Flowy Pink Dress -->
-        <path d="M 310 210 Q 280 280 250 410 L 390 410 Q 360 280 330 210 Z" fill="#FF477E"/>
-        <path d="M 320 210 Q 300 300 275 410 L 365 410 Q 340 300 320 210 Z" fill="#FF5C8A" opacity="0.6"/>
-        
-        <!-- Girl Body & Neck -->
-        <rect x="314" y="185" width="12" height="28" rx="6" fill="#FFD1DC"/>
-        
-        <!-- Girl Head & Blushing Face -->
-        <circle cx="320" cy="160" r="28" fill="#FFD1DC"/>
-        <circle cx="308" cy="165" r="6" fill="#FF85A1" opacity="0.7"/> <!-- Left Blush -->
-        <circle cx="332" cy="165" r="6" fill="#FF85A1" opacity="0.7"/> <!-- Right Blush -->
-        
-        <!-- Shocked Happy Eyes & Mouth Expression -->
-        <path d="M 305 155 Q 310 148 315 155" stroke="#5C3D2E" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <path d="M 325 155 Q 330 148 335 155" stroke="#5C3D2E" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <ellipse cx="320" cy="172" rx="5" ry="7" fill="#5C3D2E"/> <!-- O-shaped shocked happy mouth -->
-        
-        <!-- Hands Covering Face (Overwhelmed Joy) -->
-        <path d="M 300 215 C 295 185 302 165 310 162" stroke="#FFD1DC" stroke-width="10" stroke-linecap="round" fill="none"/>
-        <path d="M 340 215 C 345 185 338 165 330 162" stroke="#FFD1DC" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <svg class="anime-svg" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ambient Glow Behind Couple -->
+      <circle cx="300" cy="350" r="160" fill="url(#bgGlow)" opacity="0.5"/>
 
-        <!-- Anime Hair (Long Brown Hair) -->
-        <path d="M 320 130 C 290 130 285 170 280 260 Q 300 240 310 180" fill="#4A2511"/>
-        <path d="M 320 130 C 350 130 355 170 360 260 Q 340 240 330 180" fill="#4A2511"/>
-        <path d="M 320 132 C 298 132 295 155 295 170 C 305 160 315 160 320 168 C 325 160 335 160 345 170 C 345 155 342 132 320 132 Z" fill="#5C3D2E"/>
+      <!-- ---------------- BOY (Kneeling, Left Side) ---------------- -->
+      <g id="boy-character">
+        <!-- Legs & Kneeling Pose -->
+        <path d="M 180 370 L 130 460 L 190 460 L 210 400 Z" fill="#1e272e"/>
+        <path d="M 210 370 L 280 410 L 270 460 L 200 460 L 180 400 Z" fill="#2c3e50"/>
+        
+        <!-- Black Shoes -->
+        <ellipse cx="125" cy="460" rx="15" ry="8" fill="#0f0f0f"/>
+        <ellipse cx="275" cy="460" rx="15" ry="8" fill="#0f0f0f"/>
+
+        <!-- Stylish Dark Blue Suit Jacket -->
+        <path d="M 170 280 L 230 280 L 220 380 L 160 380 Z" fill="#2c3e50"/>
+        <path d="M 190 280 L 205 320 L 220 280 Z" fill="#ffffff"/> <!-- White Shirt Inside -->
+        <path d="M 200 295 L 203 330" stroke="#e74c3c" stroke-width="4"/> <!-- Red Tie -->
+
+        <!-- Boy Face & Skin -->
+        <rect x="185" y="250" width="15" height="30" rx="7" fill="#fbc5a2"/>
+        <circle cx="192" cy="235" r="26" fill="#fbc5a2"/>
+        
+        <!-- Handsome Facial Features -->
+        <path d="M 198 238 Q 205 242 210 236" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/> <!-- Gentle Smile -->
+        <circle cx="205" cy="230" r="2.5" fill="#2c3e50"/> <!-- Eye -->
+        <path d="M 200 224 Q 206 222 211 225" stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/> <!-- Eyebrow -->
+
+        <!-- Modern Handsome Brown Hair -->
+        <path d="M 192 210 C 165 210 162 245 168 255 C 175 235 185 220 192 220 C 200 220 212 232 218 245 C 222 230 215 210 192 210 Z" fill="#5c3d2e"/>
+        <path d="M 180 215 L 170 200 L 188 208 L 195 192 L 205 208 L 218 198 L 212 218 Z" fill="#5c3d2e"/>
+
+        <!-- Extended Arm Offering Ring -->
+        <path d="M 210 295 L 295 305" stroke="#2c3e50" stroke-width="14" stroke-linecap="round"/>
+        <circle cx="298" cy="305" r="7" fill="#fbc5a2"/> <!-- Hand -->
       </g>
 
-      <!-- BOY (Left Side, Kneeling, Offering Ring) -->
-      <g id="boy">
-        <!-- Kneeling Suit Pants -->
-        <path d="M 170 320 L 110 410 L 160 410 L 190 350 Z" fill="#1D2A44"/> <!-- Back Leg -->
-        <path d="M 190 320 L 250 370 L 240 410 L 180 410 L 160 350 Z" fill="#2B3A55"/> <!-- Front Kneeling Leg -->
+      <!-- ---------------- 💍 RING BOX & SPARKLING DIAMOND ---------------- -->
+      <g id="ring-detail">
+        <rect x="298" y="292" width="22" height="22" rx="4" fill="#c0392b"/> <!-- Velvet Red Box -->
+        <rect x="300" y="290" width="18" height="5" rx="2" fill="#e74c3c"/>
+        
+        <!-- Diamond Ring Inside Box -->
+        <circle cx="309" cy="286" r="6" stroke="#f1c40f" stroke-width="2" fill="none"/> <!-- Gold Ring Band -->
+        <polygon points="309,278 313,283 305,283" fill="#ffffff"/> <!-- Diamond -->
+        
+        <!-- Diamond Sparkle Effect -->
+        <circle cx="309" cy="280" r="14" fill="url(#diamondGlow)" opacity="0.9"/>
+        <path d="M 309 268 L 309 292 M 297 280 L 321 280" stroke="#ffffff" stroke-width="1.5" opacity="0.8"/>
+      </g>
 
-        <!-- Suit Jacket Body -->
-        <path d="M 160 250 L 205 250 L 200 330 L 150 330 Z" fill="#2B3A55"/>
-        <path d="M 175 250 L 190 280 L 200 250 Z" fill="#FFFFFF"/> <!-- Shirt Collar -->
-        <path d="M 183 260 L 187 290" stroke="#FF477E" stroke-width="3"/> <!-- Red Tie -->
+      <!-- ---------------- GIRL (Standing, Right Side) ---------------- -->
+      <g id="girl-character">
+        <!-- Gorgeous Flowing Pink Ballgown -->
+        <path d="M 380 240 Q 330 320 290 460 L 470 460 Q 430 320 395 240 Z" fill="#ff477e"/>
+        <path d="M 388 240 Q 350 340 320 460 L 440 460 Q 410 340 390 240 Z" fill="#ff6b81" opacity="0.6"/>
+        
+        <!-- Dress Upper Top -->
+        <path d="M 373 210 Q 388 220 402 210 L 400 242 L 375 242 Z" fill="#ff2a6d"/>
 
-        <!-- Boy Face & Neck -->
-        <rect x="172" y="225" width="12" height="28" rx="6" fill="#FFD1DC"/>
-        <circle cx="178" cy="210" r="24" fill="#FFD1DC"/>
-        <path d="M 182 212 Q 188 218 194 212" stroke="#5C3D2E" stroke-width="3" stroke-linecap="round" fill="none"/> <!-- Gentle Smile -->
+        <!-- Skin & Neck -->
+        <rect x="381" y="195" width="13" height="20" rx="6" fill="#ffe0bd"/>
+        
+        <!-- Girl Face -->
+        <circle cx="388" cy="175" r="26" fill="#ffe0bd"/>
+        
+        <!-- Beautiful Facial Expression (Emotional & Blushing) -->
+        <path d="M 373 172 Q 377 167 381 172" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/> <!-- Left Happy Eye -->
+        <path d="M 394 172 Q 398 167 402 172" stroke="#4a2e2b" stroke-width="2.5" stroke-linecap="round" fill="none"/> <!-- Right Happy Eye -->
+        <ellipse cx="388" cy="184" rx="4" ry="5" fill="#4a2e2b"/> <!-- Happy Wow Mouth -->
+        <circle cx="374" cy="180" r="6" fill="#ff477e" opacity="0.6"/> <!-- Left Blush -->
+        <circle cx="402" cy="180" r="6" fill="#ff477e" opacity="0.6"/> <!-- Right Blush -->
 
-        <!-- Spiky Anime Hair (Golden/Brown) -->
-        <path d="M 178 185 C 150 185 150 220 155 230 C 160 210 170 195 178 195 C 185 195 195 210 200 225 C 205 210 200 185 178 185 Z" fill="#B07D4F"/>
-        <path d="M 165 190 L 155 178 L 172 184 L 178 170 L 188 184 L 200 175 L 195 192 Z" fill="#B07D4F"/>
+        <!-- Long Beautiful Brown Hair -->
+        <path d="M 388 145 C 355 145 350 185 345 280 Q 365 260 375 200" fill="#3a1e05"/>
+        <path d="M 388 145 C 420 145 425 185 430 280 Q 410 260 400 200" fill="#3a1e05"/>
+        <path d="M 388 147 C 362 147 360 170 360 185 C 372 175 382 175 388 182 C 394 175 404 175 416 185 C 416 170 414 147 388 147 Z" fill="#4a2e2b"/>
 
-        <!-- Extended Arm holding Ring Box -->
-        <path d="M 190 260 L 255 270" stroke="#2B3A55" stroke-width="12" stroke-linecap="round"/>
-        <circle cx="258" cy="270" r="6" fill="#FFD1DC"/> <!-- Hand -->
-
-        <!-- 💍 Glowing Red Ring Box & Diamond -->
-        <rect x="258" y="258" width="18" height="18" rx="3" fill="#D63031"/>
-        <polygon points="267,248 272,255 262,255" fill="#FFFFFF"/>
-        <circle cx="267" cy="251" r="10" fill="url(#ringGlow)" opacity="0.8"/>
+        <!-- Delicate Hands Placed on Chest (Overcome with Joy) -->
+        <path d="M 368 225 Q 378 200 384 198" stroke="#ffe0bd" stroke-width="8" stroke-linecap="round" fill="none"/>
+        <path d="M 408 225 Q 398 200 392 198" stroke="#ffe0bd" stroke-width="8" stroke-linecap="round" fill="none"/>
       </g>
 
       <!-- Gradients -->
       <defs>
-        <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#FFD1DC"/>
-          <stop offset="100%" stop-color="#FFD1DC" stop-opacity="0"/>
+        <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
         </radialGradient>
-        <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#FFFFFF"/>
-          <stop offset="50%" stop-color="#FFD700"/>
-          <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+        <radialGradient id="diamondGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="40%" stop-color="#ffeaa7"/>
+          <stop offset="100%" stop-color="#fdcb6e" stop-opacity="0"/>
         </radialGradient>
       </defs>
     </svg>
   </div>
 
   <div class="ui-layer">
-    <!-- Step 1 Card -->
+    <!-- Step 1 Card (English Translated Message) -->
     <div class="card" id="step1">
       <h1>Hey Gora... ❤️</h1>
       <p>
-        हम दोनों एक-दूसरे से बहुत दूर हैं... 🌸<br>
-        मैं इस प्यारे से मौसम में तुम्हें कहीं दूर घुमाने ले जाना चाहता था, पर ले जा नहीं पा रहा।<br><br>
-        इसलिए मैं तुम्हें अपने इस छोटे से <b>वर्चुअल फेयरीटेल वर्ल्ड</b> में ले आया हूँ... ✨
+        We are so far apart from each other... 🌸<br>
+        I wanted to take you somewhere special in this beautiful weather, but I couldn't.<br><br>
+        So, I created this <b>virtual fairytale world</b> just for you... ✨
       </p>
       <button class="btn btn-next" onclick="goToStep2()">Step Inside ✨</button>
     </div>
@@ -373,6 +389,7 @@
   <script>
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
+    const bgMusic = document.getElementById('bgMusic');
 
     let width, height;
     function resize() {
@@ -382,70 +399,11 @@
     window.addEventListener('resize', resize);
     resize();
 
-    // 🎵 INBUILT WEBAUDIO ROMANTIC PIANO SYNTHESIZER (100% Reliable, No External File Needed!)
-    let audioCtx = null;
-    let isMusicPlaying = false;
-    let musicInterval = null;
-
-    const romanticNotes = [
-      261.63, 329.63, 392.00, 523.25, // C4, E4, G4, C5
-      293.66, 349.23, 440.00, 587.33, // D4, F4, A4, D5
-      329.63, 392.00, 493.88, 659.25, // E4, G4, B4, E5
-      349.23, 440.00, 523.25, 698.46  // F4, A4, C5, F5
-    ];
-
-    function playPianoNote(freq, duration = 1.8) {
-      if (!audioCtx) return;
-      try {
-        let osc = audioCtx.createOscillator();
-        let gain = audioCtx.createGain();
-        
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-        
-        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-        
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        
-        osc.start();
-        osc.stop(audioCtx.currentTime + duration);
-      } catch(e) {}
-    }
-
-    function startRomanticMusic() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-      
-      isMusicPlaying = true;
-      let noteIndex = 0;
-
-      if (musicInterval) clearInterval(musicInterval);
-
-      // Plays soft melodious piano arpeggios
-      musicInterval = setInterval(() => {
-        if (!isMusicPlaying) return;
-        let note1 = romanticNotes[noteIndex % romanticNotes.length];
-        let note2 = romanticNotes[(noteIndex + 2) % romanticNotes.length];
-        
-        playPianoNote(note1, 2.0);
-        setTimeout(() => playPianoNote(note2, 1.8), 300);
-        
-        noteIndex++;
-      }, 800);
-    }
-
     function toggleMusic() {
-      if (isMusicPlaying) {
-        isMusicPlaying = false;
-        if (musicInterval) clearInterval(musicInterval);
+      if (bgMusic.paused) {
+        bgMusic.play();
       } else {
-        startRomanticMusic();
+        bgMusic.pause();
       }
     }
 
@@ -583,8 +541,8 @@
     }
 
     function goToStep2() {
-      // Auto-start inbuilt piano music on first button click
-      startRomanticMusic();
+      // Play Romantic Piano Song on click
+      bgMusic.play().catch(() => {});
 
       const step1 = document.getElementById('step1');
       const step2 = document.getElementById('step2');
