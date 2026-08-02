@@ -73,15 +73,15 @@
       100% { opacity: 1; transform: scale(1.15); }
     }
 
-    /* 🌟 Disney Fairytale Scene */
+    /* 🌟 Disney Fairytale Image Scene */
     .anime-scene {
       position: absolute;
-      bottom: -10px;
+      bottom: 0px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
       width: 100%;
-      max-width: 620px;
+      max-width: 550px;
       display: flex;
       justify-content: center;
       align-items: flex-end;
@@ -93,11 +93,13 @@
       opacity: 0;
     }
 
-    .anime-svg {
+    .disney-img {
       width: 100%;
       height: auto;
-      max-height: 62vh;
-      filter: drop-shadow(0 15px 30px rgba(255, 105, 180, 0.6));
+      max-height: 52vh;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 30px rgba(255, 105, 180, 0.7));
+      border-radius: 20px;
     }
 
     /* UI Layer */
@@ -110,7 +112,7 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 40px;
+      padding-top: 35px;
       pointer-events: none;
     }
 
@@ -119,10 +121,10 @@
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       border: 2px solid rgba(255, 182, 193, 0.9);
-      padding: 30px 25px;
+      padding: 25px 20px;
       border-radius: 30px;
       max-width: 90%;
-      width: 500px;
+      width: 480px;
       text-align: center;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 105, 180, 0.3);
       pointer-events: auto;
@@ -132,30 +134,30 @@
 
     h1 {
       font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
+      font-size: 2.8rem;
       color: #ff3366;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       text-shadow: 0 2px 5px rgba(255, 105, 180, 0.3);
     }
 
     p {
-      font-size: 1.1rem;
-      line-height: 1.7;
+      font-size: 1.05rem;
+      line-height: 1.6;
       color: #4a4a4a;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       font-weight: 400;
     }
 
     .highlight {
       color: #ff1493;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
     }
 
     .tap-hint {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: #ff3366;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-weight: 600;
       letter-spacing: 0.5px;
       animation: blinkText 1s infinite alternate;
@@ -165,8 +167,8 @@
       background: linear-gradient(135deg, #ff416c, #ff4b2b);
       color: white;
       border: none;
-      padding: 16px 42px;
-      font-size: 1.3rem;
+      padding: 14px 38px;
+      font-size: 1.2rem;
       font-weight: 600;
       border-radius: 50px;
       cursor: pointer;
@@ -188,7 +190,7 @@
 
     .love-message-overlay {
       position: absolute;
-      top: 22%;
+      top: 20%;
       z-index: 30;
       text-align: center;
       width: 90%;
@@ -206,7 +208,7 @@
 
     .love-message-overlay h2 {
       font-family: 'Dancing Script', cursive;
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       color: #ff1493;
       text-shadow: 0 0 15px #ffffff, 0 0 30px #ffb6c1, 0 0 50px #ff477e, 0 0 80px #ff0055;
       line-height: 1.3;
@@ -217,8 +219,8 @@
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       z-index: 40;
-      background: rgba(15, 8, 22, 0.92);
-      backdrop-filter: blur(10px);
+      background: rgba(15, 8, 22, 0.94);
+      backdrop-filter: blur(12px);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -235,7 +237,7 @@
 
     .final-text {
       font-family: 'Cinzel', serif;
-      font-size: 2.6rem;
+      font-size: 2.5rem;
       color: #ff3366;
       letter-spacing: 2px;
       text-align: center;
@@ -247,7 +249,7 @@
 
     .sub-text {
       font-family: 'Dancing Script', cursive;
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       color: #ff7675;
       margin-top: 20px;
       text-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
@@ -300,124 +302,9 @@
   <div class="intense-glow" id="intenseGlow"></div>
   <canvas id="canvas"></canvas>
 
+  <!-- 🌟 Disney Princess Style Proposal Image -->
   <div class="anime-scene" id="animeScene">
-    <svg class="anime-svg" viewBox="0 0 650 550" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="325" cy="380" r="200" fill="url(#magicalAura)" opacity="0.6"/>
-
-      <!-- ================= BOY (Refined Disney Prince Vibe) ================= -->
-      <g id="boy-character">
-        <!-- Kneeling Legs & Boots -->
-        <path d="M 190 410 L 140 500 L 210 500 L 230 430 Z" fill="#151b22"/>
-        <path d="M 230 400 L 290 450 L 270 500 L 210 500 Z" fill="#1f2c38"/>
-        <ellipse cx="130" cy="500" rx="20" ry="12" fill="#05070a"/>
-        <ellipse cx="280" cy="500" rx="22" ry="12" fill="#05070a"/>
-
-        <!-- Tunic/Jacket -->
-        <path d="M 170 300 L 250 290 C 255 350 240 410 230 420 L 160 410 Z" fill="#2471a3"/>
-        <path d="M 165 390 L 235 395 L 230 415 L 160 410 Z" fill="#6c3483"/>
-        <rect x="190" y="388" width="15" height="25" rx="3" fill="#f1c40f"/>
-
-        <!-- Extended Arm holding Ring forward clearly -->
-        <path d="M 230 310 Q 280 325 320 315" stroke="#2471a3" stroke-width="16" stroke-linecap="round"/>
-        <circle cx="325" cy="313" r="8" fill="#f5b041"/> 
-
-        <!-- Prince Head & Smooth Face -->
-        <path d="M 180 200 C 210 190 240 200 232 240 C 225 265 205 270 190 265 C 175 255 172 220 180 200 Z" fill="#f5b041"/>
-        
-        <!-- Elegant Disney Prince Hair (Flynn Rider / Charming style) -->
-        <path d="M 175 210 C 160 175 200 145 238 175 C 248 185 242 215 232 220 C 225 185 195 165 175 210 Z" fill="#2c1d0c"/>
-        <path d="M 180 175 Q 205 155 222 190 Q 198 170 180 175" fill="#1a1107"/>
-
-        <!-- Expressive Soft Eyes & Smirk -->
-        <path d="M 203 205 Q 212 200 222 210" stroke="#1a1107" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <ellipse cx="215" cy="218" rx="5" ry="7" fill="#ffffff"/> 
-        <ellipse cx="217" cy="218" rx="2.5" ry="4.5" fill="#7d3c98"/> 
-        <circle cx="218" cy="216" r="1.5" fill="#ffffff"/> 
-
-        <ellipse cx="192" cy="218" rx="3.5" ry="5.5" fill="#ffffff"/> 
-        <circle cx="193" cy="218" r="2" fill="#7d3c98"/> 
-
-        <path d="M 196 238 Q 205 243 214 235" stroke="#1a1107" stroke-width="2" stroke-linecap="round" fill="none"/>
-      </g>
-
-      <!-- ================= 💍 FULLY VISIBLE RING & BOX (Front & Center) ================= -->
-      <g id="ring-detail">
-        <rect x="320" y="300" width="28" height="24" rx="5" fill="#b03a2e"/> 
-        <rect x="322" y="297" width="24" height="6" rx="2" fill="#e74c3c"/>
-        <path d="M 334 297 L 334 282" stroke="#f1c40f" stroke-width="3"/>
-        <polygon points="334,270 342,280 326,280" fill="#ffffff"/> 
-        <!-- Diamond Mega Glow -->
-        <circle cx="334" cy="275" r="22" fill="url(#diamondGlow)"/>
-        <path d="M 334 250 L 334 300 M 309 275 L 359 275 M 317 258 L 351 292 M 317 292 L 351 258" stroke="#ffffff" stroke-width="2" opacity="0.95"/>
-      </g>
-
-      <!-- ================= GIRL (Refined Disney Princess - Tangled/Frozen Vibe) ================= -->
-      <g id="girl-character">
-        <!-- Gorgeous Flowing Ballgown -->
-        <path d="M 430 240 Q 340 320 295 500 L 540 500 Q 495 320 440 240 Z" fill="#e91e63"/>
-        <path d="M 435 240 Q 365 360 335 500 L 510 500 Q 465 360 445 240 Z" fill="#ff4081" opacity="0.75"/>
-        <circle cx="370" cy="410" r="4" fill="#ffffff"/>
-        <circle cx="470" cy="440" r="5" fill="#ffffff"/>
-        <circle cx="420" cy="380" r="3.5" fill="#ffffff"/>
-
-        <!-- Corset & Puffed Shoulders -->
-        <path d="M 415 205 Q 440 215 450 205 L 445 250 L 420 250 Z" fill="#c2185b"/>
-        <circle cx="410" cy="212" r="11" fill="#ff80ab"/>
-        <circle cx="455" cy="212" r="11" fill="#ff80ab"/>
-
-        <!-- Hands to Chest in Joyful Gasped Shock -->
-        <path d="M 420 215 Q 390 245 410 190" stroke="#f5b041" stroke-width="11" stroke-linecap="round" fill="none"/>
-        <path d="M 450 215 Q 470 245 435 190" stroke="#f5b041" stroke-width="11" stroke-linecap="round" fill="none"/>
-        <circle cx="410" cy="185" r="7.5" fill="#f5b041"/>
-        <circle cx="435" cy="185" r="7.5" fill="#f5b041"/>
-
-        <!-- Princess Head & Face -->
-        <path d="M 420 185 Q 430 205 435 185 L 435 165 L 420 165 Z" fill="#f5b041"/>
-        <path d="M 395 140 C 455 125 470 165 450 195 C 440 210 405 210 395 190 C 380 160 390 140 395 140 Z" fill="#f5b041"/>
-        
-        <!-- Big Expressive Disney Princess Eyes -->
-        <!-- Left Eye -->
-        <path d="M 400 160 C 400 145 416 145 416 160 C 416 170 400 170 400 160 Z" fill="#ffffff"/>
-        <ellipse cx="408" cy="158" rx="4.5" ry="6.5" fill="#229954"/> 
-        <ellipse cx="408" cy="158" rx="2.5" ry="4" fill="#000000"/> 
-        <circle cx="406" cy="154" r="2" fill="#ffffff"/> 
-        <path d="M 397 155 Q 408 140 419 155" stroke="#1a1107" stroke-width="3" stroke-linecap="round" fill="none"/>
-
-        <!-- Right Eye -->
-        <path d="M 425 160 C 425 145 441 145 441 160 C 441 170 425 170 425 160 Z" fill="#ffffff"/>
-        <ellipse cx="433" cy="158" rx="4.5" ry="6.5" fill="#229954"/> 
-        <ellipse cx="433" cy="158" rx="2.5" ry="4" fill="#000000"/> 
-        <circle cx="431" cy="154" r="2" fill="#ffffff"/> 
-        <path d="M 422 155 Q 433 140 444 155" stroke="#1a1107" stroke-width="3" stroke-linecap="round" fill="none"/>
-
-        <!-- Tiny Cute Nose & Open Shocked-Happy Smile -->
-        <path d="M 418 168 Q 421 171 424 168" stroke="#d35400" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-        <path d="M 411 178 Q 421 190 431 178 Z" fill="#900c3f"/> 
-        <path d="M 414 178 Q 421 183 428 178 Z" fill="#ffffff"/> 
-
-        <!-- Rosy Cheeks -->
-        <ellipse cx="397" cy="170" rx="6" ry="3.5" fill="#ff4081" opacity="0.75"/>
-        <ellipse cx="444" cy="170" rx="6" ry="3.5" fill="#ff4081" opacity="0.75"/>
-
-        <!-- Stunning Princess Hair Waves (Golden/Blonde Rapunzel style) -->
-        <path d="M 425 105 C 355 105 350 175 345 295 Q 375 255 405 185" fill="#f1c40f"/> 
-        <path d="M 425 105 C 495 105 500 175 505 295 Q 475 255 445 185" fill="#f1c40f"/>
-        <path d="M 425 110 C 390 110 380 145 390 155 C 400 135 420 130 430 140 C 445 130 460 140 470 155 C 480 135 460 110 425 110 Z" fill="#d4ac0d"/>
-      </g>
-
-      <defs>
-        <radialGradient id="magicalAura" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
-          <stop offset="35%" stop-color="#ffb8d1" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#ff9ff3" stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="diamondGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#ffffff"/>
-          <stop offset="30%" stop-color="#a8ebe6"/>
-          <stop offset="100%" stop-color="#00cec9" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-    </svg>
+    <img class="disney-img" src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=800&auto=format&fit=crop" alt="Disney Proposal Vibe">
   </div>
 
   <div class="ui-layer">
@@ -470,7 +357,7 @@
 
     function toggleMusic() {
       if (bgMusic.paused) {
-        bgMusic.play();
+        bgMusic.play().catch(() => {});
       } else {
         bgMusic.pause();
       }
@@ -597,4 +484,120 @@
         ctx.shadowBlur = 15;
         ctx.shadowColor = '#ff477e';
         ctx.beginPath();
+        let topCurveHeight = this.size * 0.3;
+        ctx.moveTo(this.x, this.y + topCurveHeight);
+        ctx.bezierCurveTo(this.x, this.y, this.x - this.size / 2, this.y, this.x - this.size / 2, this.y + topCurveHeight);
+        ctx.bezierCurveTo(this.x - this.size / 2, this.y + (this.size + topCurveHeight) / 2, this.x, this.y + this.size, this.x, this.y + this.size);
+        ctx.bezierCurveTo(this.x, this.y + this.size, this.x + this.size / 2, this.y + (this.size + topCurveHeight) / 2, this.x + this.size / 2, this.y + topCurveHeight);
+        ctx.bezierCurveTo(this.x + this.size / 2, this.y, this.x, this.y, this.x, this.y + topCurveHeight);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function createMassiveExplosion() {
+      const x = Math.random() * width;
+      const y = Math.random() * (height * 0.6);
+      const colors = ['#ff416c', '#ffd700', '#00f2fe', '#ffffff', '#ff6b81', '#9b59b6'];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      
+      for (let i = 0; i < 150; i++) {
+        fireworks.push(new Firework(x, y, color));
+      }
+      for (let i = 0; i < 50; i++) {
+        megaSparkles.push(new Sparkle(x, y));
+      }
+    }
+
+    function animate() {
+      if(!isCelebrating) {
+        drawDefaultScene();
+      } else {
+        ctx.fillStyle = 'rgba(28, 19, 38, 0.2)'; 
+        ctx.fillRect(0, 0, width, height);
+
+        if (Math.random() < 0.25) createMassiveExplosion();
         
+        fireworks.forEach((p, index) => {
+          p.update();
+          p.draw();
+          if (p.alpha <= 0) fireworks.splice(index, 1);
+        });
+
+        megaSparkles.forEach((s, index) => {
+          s.update();
+          s.draw();
+          if (s.alpha <= 0) megaSparkles.splice(index, 1);
+        });
+
+        if (Math.random() < 0.6) hearts.push(new HeartParticle());
+        if (Math.random() < 0.6) hearts.push(new HeartParticle());
+        
+        hearts.forEach((h, index) => {
+          h.update();
+          h.draw();
+          if (h.y < -50) hearts.splice(index, 1);
+        });
+      }
+      requestAnimationFrame(animate);
+    }
+
+    function goToStep2() {
+      bgMusic.play().catch(() => {});
+      const step1 = document.getElementById('step1');
+      const step2 = document.getElementById('step2');
+
+      step1.style.opacity = '0';
+      setTimeout(() => {
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+        setTimeout(() => {
+          step2.style.opacity = '1';
+        }, 50);
+      }, 500);
+    }
+
+    function startCelebration() {
+      const step2 = document.getElementById('step2');
+      step2.style.opacity = '0';
+      setTimeout(() => step2.style.display = 'none', 500);
+
+      // 1. Flash
+      const flash = document.getElementById('magicFlash');
+      flash.classList.add('active');
+
+      // 2. Glow
+      const intenseGlow = document.getElementById('intenseGlow');
+      intenseGlow.classList.add('active');
+
+      // 3. Explosion
+      isCelebrating = true;
+      for(let i=0; i<3; i++) {
+        setTimeout(createMassiveExplosion, i * 200);
+      }
+
+      // 4. Show love message overlay briefly
+      setTimeout(() => {
+        const loveMessage = document.getElementById('loveMessage');
+        loveMessage.classList.add('show');
+      }, 800);
+
+      // 5. Fade out scene and show final custom message screen after celebration sparkles
+      setTimeout(() => {
+        const animeScene = document.getElementById('animeScene');
+        const loveMessage = document.getElementById('loveMessage');
+        animeScene.classList.add('fade-out');
+        loveMessage.style.opacity = '0';
+        intenseGlow.style.opacity = '0';
+
+        setTimeout(() => {
+          const finalScreen = document.getElementById('finalScreen');
+          finalScreen.classList.add('active');
+        }, 1000);
+      }, 6500);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
